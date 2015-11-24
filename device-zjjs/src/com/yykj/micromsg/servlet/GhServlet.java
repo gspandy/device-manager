@@ -126,7 +126,7 @@ public class GhServlet extends HttpServlet {
 		String ghdeptid = request.getParameter("deptid");
 		String userid = "wxapp";
 		
-		//2.组装Map
+		//2.组装参数Map
 		requestMap.put("RegType", "1");
 		requestMap.put("Day", day);
 		requestMap.put("RigsterType", ghtype);
