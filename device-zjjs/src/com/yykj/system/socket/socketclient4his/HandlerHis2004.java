@@ -11,7 +11,6 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
 import com.yykj.base.exception.BusinessException;
-import com.yykj.base.util.PropertiesUtil;
 
 /**
  * 处理HIS2004 
