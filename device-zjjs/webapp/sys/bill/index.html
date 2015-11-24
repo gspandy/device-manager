@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+   <link href="../../frame/css/bootstrap.min.css" rel="stylesheet" />
+   <link href="../../frame/css/bootstrap-responsive.min.css" rel="stylesheet" />
+   <link href="../../frame/css/font-awesome.css" rel="stylesheet" />
+   <link href="../../frame/css/style.css" rel="stylesheet" />
+   <link href="../../frame/css/style-responsive.css" rel="stylesheet" />
+   <link href="../../frame/css/style-default.css" rel="stylesheet" id="style_color" />
+    
+   
+   <script src="../../frame/js/jquery-1.8.3.min.js"></script>
+   <script src="../../frame/js/bootstrap.min.js"></script>
+    
+   <script type="text/javascript" src="../Js/ckform.js"></script>
+   <script type="text/javascript" src="../Js/common.js"></script>
+   <style type="text/css">
+   		html {
+   		 	height: 100%;
+        }
+        body{
+            background-color: white;
+            height: 100%;
+            font-size: 12px;
+        } 
+        #content{
+        	padding-top:10px; 
+        	height: calc(100% - 30px); 
+        }
+        .font{
+        	 font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+        }
+        #too:hover{border:1px solid #CCCCCC} 
+        
+    </style>
+</head>
+<body>
+	<div id="content">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget blue">
+					<div class="widget-title">
+						<h4>
+							<i class="icon-reorder"></i> 单据列表
+						</h4>
+						<span class="tools"> 
+							<!-- <a href="javascript:;" class="icon-chevron-down"></a> 
+							<a href="javascript:;" class="icon-remove"></a>		 -->					
+						</span>
+					</div>
+					<div class="widget-body">
+						
+						
+						<div class="row-fluid">
+							<!-- modal 弹出层 -->
+						 	<div class="modal fade" id="myModal" style="width:900px"">
+							  <div class="modal-dialog">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							        <h4 class="modal-title">收费项目</h4>
+							      </div>
+							      <div class="modal-body">
+							      	<table id="tb_detail" class="table table-bordered table-hover" >
+									    <thead>
+									    <tr style="background-color:#999999;color: white;">  
+									        <th style="text-align: center;">项目名称</th>
+									        <th style="text-align: center;">项目类别</th>
+									        <th style="text-align: center;">执行科室</th>
+									        <th style="text-align: center;">数量</th>
+									        <th style="text-align: center;">单位</th>
+									        <th style="text-align: center;">单价</th>
+									        <th style="text-align: center;">应收金额</th>
+									        <th style="text-align: center;">实收金额</th>
+									    </tr>
+									    </thead>
+									    <tbody>
+									    </tbody>
+									</table>
+							      </div>
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							       <!--  <button type="button" class="btn btn-primary">Save changes</button> -->
+							      </div>
+							    </div><!-- /.modal-content -->
+							  </div><!-- /.modal-dialog -->
+							</div><!-- /.modal -->
+														
+							<form class="form-inline definewidth m20" name="myform">
+								<select id="param" name="param" style="width: 94px;">
+										<option value="0">全部记录</option>
+				        				<option value="1">用户姓名</option>
+				        				<option value="2">身份证号</option>
+				        				<option value="3">银行卡号</option>
+				        				<option value="4">挂号ID</option>
+				        				<option value="5">病人ID</option>
+				        				<!-- <option value="2">用户职位</option> -->
+				        		</select> 
+								<input type="text" name="pvalue" id="pvalue" placeholder="查询条件..." >&nbsp;&nbsp;
+				        		<button type="button" class="btn  btn-primary" id="btnSearch" name="btnSearch" >查询</button>
+								<div class="btn-group pull-right" id="too">
+                                   <button class="btn dropdown-toggle" data-toggle="dropdown" style="background-color: transparent;">
+                                    <i class="icon-wrench"></i>
+                                   		工具
+                                   	<i class="icon-angle-down"></i>
+                                   </button>
+                                     <ul class="dropdown-menu pull-right">
+                                          <!-- <li><a href="#"><i class="icon-print"></i>&nbsp;报表打印</a></li> -->
+                                          <li>
+                                          	<a href="javascript:void(0)" onclick="exportExcel()"><i class="icon-windows"></i>&nbsp;导出Excel</a>
+                                          </li>
+                                     </ul>
+                             	</div>
+							</form>
+						</div>
+						<table class="table table-bordered" id='tbuser'>   
+							<thead>
+								<tr style="background-color:#999999;color: white;">
+									<th style="text-align: center; background-color:#969696;"></th>
+									<th style="text-align: center;">用户姓名</th>
+									<th style="text-align: center;">身份证号</th>
+									<th style="text-align: center;">银行账号</th>
+									<th style="text-align: center;">病人ID</th>
+									<th style="text-align: center;">挂号ID</th>
+									<th style='text-align: center;'>应收金额</th>
+									<th style='text-align: center;'>实收金额</th>
+									<th style='text-align: center;'>银行扣款</th>
+									<th style='text-align: center;'>发起时间</th>
+									<th style='text-align: center;'>流水号</th>
+									<!-- <th style='text-align: center;'>银行交易时间</th> -->
+									<th style='text-align: center;'>银行流水号</th>
+									<th style='text-align: center;'>交款状态</th>
+									<!-- <th style='text-align: center;'>操作</th> -->
+								</tr>
+							</thead>
+							<tbody id="tbd"> 
+							</tbody>
+						</table>
+						<!-- 分页 -->
+						<div class="row-fluid">
+							<div class="span6">
+								<div class="dataTables_info" >
+								共<span id="totalRecord">0</span>条记录,当前<span id="currentPage">0</span>/<span id="totalPage">0</span>页
+								</div>
+							</div>
+							<div class="span6"> 
+								<div class="dataTables_paginate paging_bootstrap pagination">
+									<ul>
+										<li class="prev"><a href="javascript:home();">首页</a></li>
+										<li><a href="javascript:previous();">上一页</a></li>
+										<li><a href="javascript:next();">下一页</a></li>
+										<li class="next"><a href="javascript:last();">末页</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 用于下载的iframe -->
+<iframe id="download_if" id="sucess" style="display:none;" ></iframe>
+</body>
+</html>
+<script type="text/javascript"> 
+	function check(data) {
+		var flag = data.error;
+		if (flag) {
+			window.parent.location.href = "../Public/login.html"
+		}
+	}
+	$(function() {
+		$('#addnew').click(function() {
+			window.location.href = "add.html";
+		});
+	});
+
+	function del(id) {
+		if (confirm("确定要删除吗？")) {
+			$.post("../../UserInfoServlet?method=deleteUser", {
+				msg : id
+			}, function(result) {
+				//check(data);
+				if (result == 'true') {
+					alert("删除成功!");
+					/*  $('#myform')[0].reset() */
+					window.location.href = "../User/index.html";
+				} else if (result == 'existed') {
+					/* alert("该组织机构存在子节点无法删除!");
+					return; */
+				}
+			});
+		}
+	}
+	
+	function addTr(o,id){
+		var tab="<table id='112233' class='table table-bordered'>"+
+				"<tr>"+
+				"<th style='text-align: center; background-color:#C0C0C0;width:34px;'></th>"+
+				"<th style='text-align: center; background-color:#C0C0C0'>单据号</th>"+
+				"<th style='text-align: center; background-color:#C0C0C0'>开单时间</th>"+
+				"<th style='text-align: center; background-color:#C0C0C0'>开单科室</th>"+
+				"<th style='text-align: center; background-color:#C0C0C0'>开单医生</th>"+
+				"<th style='text-align: center; background-color:#C0C0C0'>应收金额</th>"+
+				"<th style='text-align: center; background-color:#C0C0C0'>实收金额</th>"+
+				"</tr>                                                "+
+				"@trs                                      "+
+				"</table>";
+		var val = $(o).html();
+		if("+"==val){
+			$.ajax({
+				type : "get",
+				url : "../../BillInfoServlet?method=getBillInfoByBankTransId",
+				dataType : "json",
+				data : {"banktransid":id},
+				cache:false,
+				success : function(billinfos) {	
+					var trs="";
+					$.each(billinfos, function(i,bill) {
+						trs += "<tr>";
+						trs += "<td style='text-align: center; background-color:#C0C0C0; color:#FFFFFF; font-size: 16px; font-weight: bold; cursor: pointer;' onclick='addTrdetail(this,"+bill.id+")' >+</td>";
+						trs += "<td style='text-align: center;'>"+bill.receiptno+"</td>";
+						trs += "<td style='text-align: center;'>"+bill.receipttime+"</td>";
+						trs += "<td style='text-align: center;'>"+bill.billdept+"</td>";
+						trs += "<td style='text-align: center;'>"+bill.doctor+"</td>";
+						trs += "<td style='text-align: center;'>"+bill.shouldmoney+"</td>";
+						trs += "<td style='text-align: center;'>"+bill.actualmoney+"</td>";
+						trs += "</tr>";
+					});
+					tab = tab.replace("@trs",trs);
+					var tr1 = $(o).parent();
+					var tr2="<tr><td style=' background-color:#999999;'></td><td colspan='13'>"+tab+"</td></tr>";
+					var addtr = $(tr2);
+					$(tr1).after(addtr.clone(true));
+					$(o).html("-")
+				},
+				error : function() {
+					alert("请求出错");
+				}
+			})
+		}else{
+			var $tr1 = $(o).parent().next();
+			$tr1.remove();
+			 $(o).html("+")
+		}
+	}
+	
+	
+	function addTrdetail(o,id){
+		var tab="<table class='table table-bordered'>"+
+				"<tr>"+
+				"<th style='text-align: center; background-color:#DDDDDD'>项目名称</th>"+
+				"<th style='text-align: center; background-color:#DDDDDD'>项目类别</th>"+
+				"<th style='text-align: center; background-color:#DDDDDD'>执行科室</th>"+
+				"<th style='text-align: center; background-color:#DDDDDD'>数量</th>"+
+				"<th style='text-align: center; background-color:#DDDDDD'>单位</th>"+
+				"<th style='text-align: center; background-color:#DDDDDD'>单价</th>"+
+				"<th style='text-align: center; background-color:#DDDDDD'>应收金额</th>"+
+				"<th style='text-align: center; background-color:#DDDDDD'>实收金额</th>"+
+				"</tr>"+
+				"@trs"+
+				"</table>";
+		var trs="";
+		var val = $(o).html();
+		if("+"==val){
+			$.ajax({
+				type : "get",
+				url : "../../BillInfoServlet?method=getBillDetailByBillId",
+				data : {"billinfoid":id},
+				dataType : "json",
+				cache:false,
+				success : function(details) {	
+					$.each(details, function(i,detail) {
+						trs += "<tr>";
+						trs += "<td style='text-align: center;'>"+detail.itemname+"</td>";
+						trs += "<td style='text-align: center;'>"+detail.feesitem+"</td>";
+						trs += "<td style='text-align: center;'>"+detail.execdept+"</td>";
+						trs += "<td style='text-align: center;'>"+detail.num+"</td>";
+						trs += "<td style='text-align: center;'>"+detail.itemunit+"</td>";
+						trs += "<td style='text-align: center;'>"+detail.price+"</td>";
+						trs += "<td style='text-align: center;'>"+detail.shouldmoney_item+"</td>";
+						trs += "<td style='text-align: center;'>"+detail.actualmoney_item+"</td>";
+						trs += "</tr>";
+					});
+					tab = tab.replace("@trs",trs);
+					var tr1 = $(o).parent();
+					var tr2="<tr><td style=' background-color:#C0C0C0;'></td><td colspan='13'>"+tab+"</td></tr>";
+					var addtr = $(tr2);
+					$(tr1).after(addtr.clone(true));
+					$(o).html("-")
+				},
+				error : function() {
+					alert("请求出错");
+				}
+			})
+		}else{
+			var $tr1 = $(o).parent().next();
+			$tr1.remove();
+			 $(o).html("+")
+		}
+	}
+
+	var pager = null;//分页使用的对象
+	
+	
+	
+	function exportExcel(){
+		var type = $('#param').val();
+		var value = $('#pvalue').val();
+		document.getElementById('download_if').src="../../BillInfoServlet?method=exportExcel" + "&type="+type+"&value="+value;
+	}
+	
+	function likeSearch(page){
+		$("#tbd").empty();
+		var p = $('#param').val();
+		var pvalue = $('#pvalue').val();
+		$.ajax({
+			type : "get",
+			url : "../../BillInfoServlet?method=getBankTransInfos",
+			data : {"type":p,"value":pvalue,"pageIndex":page},
+			dataType : "json",
+			cache:false,
+			success : function(infos) {	
+				var data = infos.data;
+				var totalShouldmoney=0.00;
+				var totalActualmoney=0.00;
+				var totalBankmoney=0.00;
+				$.each(data, function(i) {
+					totalShouldmoney +=  parseFloat(data[i].shouldmoney);
+					totalActualmoney +=  parseFloat(data[i].actualmoney);
+					totalBankmoney +=  parseFloat(data[i].bankmoney);
+					var state = data[i].trantype;
+					var str;
+					var style;
+					if(state=='0'){
+						str="交易成功";
+						style="color:#5BA110; font-weight: bold;"
+					}else if(state=='1'){
+						str="交易冲正";
+						style="color:#FF8B45; font-weight: bold;"
+					}else {
+						str = "交易失败";
+						style="color:red; font-weight: bold;"
+					}
+					$("#tbd").append(
+							"<tr>"+
+							"<td style='text-align: center;  background-color:#969696; color:#FFFFFF;  font-size: 16px; font-weight: bold; cursor: pointer;' onclick='addTr(this,"+data[i].id+")'>+</td>"+ 
+							"<td style='text-align: center;'>" + data[i].yhmc + "</td>"+ 
+							"<td style='text-align: center;'>" + data[i].idcard + "</td>"+
+							"<td style='text-align: center;'>" + data[i].yhzh + "</td>"+
+							"<td style='text-align: center;'>" + data[i].patientid + "</td>"+
+							"<td style='text-align: center;'>" + data[i].ghid + "</td>"+
+							"<td style='text-align: center;'>" + parseFloat(data[i].shouldmoney).toFixed(2) + "</td>"+
+							"<td style='text-align: center;'>" + parseFloat(data[i].actualmoney).toFixed(2) + "</td>"+
+							"<td style='text-align: center;'>" + parseFloat(data[i].bankmoney).toFixed(2) + "</td>"+
+							"<td style='text-align: center;'>" + data[i].localTransDate + "</td>"+
+							"<td style='text-align: center;'>" + data[i].localTransNum + "</td>"+
+							/* "<td style='text-align: center;'>" + data[i].bankTransDate + "</td>"+ */
+							"<td style='text-align: center;'>" + data[i].bankTransNum + "</td>"+
+							"<td style='text-align: center; "+style+"'>" + str + "</td>"+
+							/* "<td style='text-align: center;'>" +
+								 "<a class='btn btn-primary btn-mini' href='javascript:void(0)' onclick='showDetail("+data[i].id+")'><i class='icon-pencil'></i> 详情</a>" + 
+							"</td>"+ */
+							"</tr>"
+							);
+				});
+				
+				$("#tbd").append("<tr><td style='text-align: right;' colspan='2'>费用合计:</td><td style='text-align: right;' colspan='11'>应收金额:"+totalShouldmoney.toFixed(2)+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实收金额:"+totalActualmoney.toFixed(2)+" &nbsp;&nbsp;&nbsp;&nbsp;银行扣款:"+totalBankmoney.toFixed(2)+"</td></tr>");
+				//加载分页标签
+				pager = infos.page;
+				document.getElementById("totalRecord").innerText = pager.totalCount;
+				document.getElementById("currentPage").innerText = pager.pageIndex;
+				document.getElementById("totalPage").innerText = pager.totalPages;
+			},
+			error : function() {
+				alert("请求出错");
+			}
+		})
+	
+	}
+	
+	
+	function showDetail(billinfoid){
+		 $('#myModal').modal('show').css({
+            'margin-left': function () {
+                return (($(document).width()-$(this).width()) / 2);
+            }
+         });
+		$("#tb_detail tbody").empty();
+		var pvalue = $('#pvalue').val();
+		$.ajax({
+			type : "get",
+			url : "../../BillInfoServlet?method=getBillDetailByBillId",
+			data : {"billinfoid":billinfoid},
+			dataType : "json",
+			cache:false,
+			success : function(data) {	
+				$.each(data, function(i) {
+					$("#tb_detail tbody").append(
+							"<tr>"+
+							"<td style='text-align: center;'>" + data[i].itemname + "</td>"+ 
+							"<td style='text-align: center;'>" + data[i].feesitem + "</td>"+
+							"<td style='text-align: center;'>" + data[i].execdept + "</td>"+
+							"<td style='text-align: center;'>" + data[i].num + "</td>"+
+							"<td style='text-align: center;'>" + data[i].itemunit + "</td>"+
+							"<td style='text-align: center;'>" + data[i].price + "</td>"+
+							"<td style='text-align: center;'>" + data[i].shouldmoney_item + "</td>"+
+							"<td style='text-align: center;'>" + data[i].actualmoney_item + "</td>"
+						);
+				});
+			},
+			error : function() {
+				alert("请求出错");
+			}
+		})
+		 $("#myModal").modal("show");
+	}
+	
+	function home(){//点击首页
+		var page = 1;
+		likeSearch(page);
+	}
+	
+	function previous(){//上一页
+		var page = pager.pageIndex -1;
+		if(page<1){
+			return;
+		}else{
+			likeSearch(page);
+		}
+	}
+	
+	function next(){//下一页
+		if(pager.pageIndex==pager.totalPages){
+			return;
+		}else{
+			likeSearch(pager.pageIndex+1);
+		}
+		
+	}
+	
+	function last(){//末页
+		if(pager.pageIndex==pager.totalPages){
+			return;
+		}else{
+			likeSearch(pager.totalPages);
+		}		
+	}
+	
+	$(function() {
+		$('#btnSearch').click(function() {
+			likeSearch(1);
+		});
+	});
+	
+	$(document).ready(function() {
+		likeSearch(1);
+	});
+</script>

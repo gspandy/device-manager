@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GBK" standalone="no"?>
+<Root>
+	<Head>
+		<TranCode>2015012</TranCode>
+		<RspCode>0</RspCode>
+		<RspMsg>查询成功</RspMsg>
+	</Head>
+	<Data>
+		<PatientID>32000121</PatientID>
+		<CardTranFlow>BKLSH001</CardTranFlow>
+		<PayTranFlow>0091219</PayTranFlow>
+		<TranTime>2015-10-10 12:21:11</TranTime>
+		<Amt>200.00</Amt>
+	</Data>
+</Root> 

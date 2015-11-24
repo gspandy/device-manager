@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="GBK" standalone="no"?>
+<Root>
+	<Head>
+		<TranCode>2015011</TranCode>
+		<RspCode>0</RspCode>
+		<RspMsg>查询成功</RspMsg>
+	</Head>
+	<Data>
+		<TranFlow>YHLSH0001</TranFlow>
+		<RegisterNo>GHD002</RegisterNo>
+		<AsRowid>1</AsRowid>
+		<JZTime>2015-10-10- 12:21:11</JZTime>
+		<JZNo>10</JZNo>
+		<Type>急诊号</Type>
+		<PatName>张三三</PatName>
+		<MZH>MZH002</MZH>
+		<FeesType>01</FeesType>
+		<FeesItem>挂号费</FeesItem>
+		<DeptName>急诊科</DeptName>
+		<Loc>二楼10诊室</Loc>
+		<DoctorName>张医生</DoctorName>
+		<SessionType>主任医师</SessionType>
+		<RegTime>2015-10-10</RegTime>
+	</Data>
+</Root>

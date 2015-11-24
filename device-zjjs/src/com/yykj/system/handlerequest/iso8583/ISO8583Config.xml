@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<j8583cn-config>
+
+	<!-- length属性表示该报文头的应该长度， "0200"为该报文类型ID -->
+	<header length="2">0200</header>
+	<!-- 
+		attribute: ans12、ans..12、an12 、 an..12都统一用ANS表示
+		n4:用N
+		n..4 用N_
+		BINARY: 用B
+		
+		N:右靠 左补零
+		ANS:左靠右补空格
+		Z:开头和N_相同的处理方式
+	 -->
+	<template msgtypeid="0800" title="签到">
+		<field bit="11" filedname="SerialNum" 		datatype="BCD"	attribute ="N" 	 format="" 		 length="6"></field>	<!--000283  终端交易流水-->
+		<field bit="41" filedname="TerminalsCode" 	datatype="ASC"	attribute ="ANS" format="" 		 length="8"></field>	<!-- 3134353930303031 终端代码-->
+		<field bit="42" filedname="MerchantCdoe" 	datatype="ASC"	attribute ="ANS" format="" 		 length="15"></field>	<!-- 343539343230313933393930303031 商户代码-->
+		<field bit="60" filedname="Custom" 			datatype="BCD" attribute ="N_"	 format="LLLVAR" length="100"></field>	<!-- 0011000000000030 自定义域-->
+	</template>
+
+	<template msgtypeid="0200" title="消费">
+		<field bit="2"  filedname="CardNo"        	datatype="BCD"	    attribute ="N_"  format="LLVAR"  length="19"></field>			<!-- 17622396888072531200 主帐号-->
+		<field bit="3"  filedname="HandlerCode"   	datatype="BCD"	    attribute ="N"	 format="" 		 length="6">190000</field>		<!-- 190000  交易处理码-->
+		<field bit="4"  filedname="Money"         	datatype="BCD"	    attribute ="N"	 format="" 		 length="12"></field>			<!-- 000000010000 交易金额-->
+		<field bit="11" filedname="SerialNum"     	datatype="BCD"	    attribute ="N"	 format="" 		 length="6"></field>			<!-- 001086 终端交易流水号-->
+		<field bit="22" filedname="InputMode"     	datatype="BCD"	    attribute ="N"	 format="" 		 length="3">021</field>			<!-- 0210 服务点输入方式码-->
+		<field bit="25" filedname="ConditionCode" 	datatype="BCD"	    attribute ="N"	 format="" 		 length="2">82</field>			<!-- 82 服务点条件码-->
+		<field bit="26" filedname="PinGetCode"    	datatype="BCD"	    attribute ="N"	 format="" 		 length="2">06</field>			<!-- 06 服务点PIN获取码-->
+		<field bit="35" filedname="TwoTrack"  	  	datatype="BCD"	    attribute ="N_"	 format="LLVAR"  length="37"></field>			<!-- 2462239688807253120D222222 2磁道数据-->
+		<field bit="36" filedname="ThreeTrack"    	datatype="BCD"	    attribute ="N_"	 format="LLLVAR" length="104"></field>	 		<!-- 002462239688807253120D333333 3磁道数据 -->
+		<field bit="41" filedname="TerminalsCode" 	datatype="ASC" 	    attribute ="ANS" format="" 		 length="8"></field>			<!-- 3134353930303031 终端代码-->
+		<field bit="42" filedname="MerchantCdoe"  	datatype="ASC" 	    attribute ="ANS" format="" 		 length="15"></field>			<!-- 343539343230313933393930303031 商户代码-->
+		<field bit="49" filedname="CurrencyCode"  	datatype="ASC" 	    attribute ="ANS" format="" 		 length="3">156</field>			<!-- 313536 交易货币代码-->
+		<field bit="52" filedname="PinKey"        	datatype="BINARY" 	attribute ="B"	 format="" 		 length="64"></field>			<!-- CBE1D4CC52A0A290 个人标识码数据-->
+		<field bit="53" filedname="SafeControl"   	datatype="BCD" 	    attribute ="N"	 format="" 		 length="16">2600000000000000</field>	<!-- 2600000000000000 安全控制信息-->
+		<field bit="60" filedname="Custom"        	datatype="BCD" 	    attribute ="N" format="LLLVAR"   length="11">22000001000</field>			<!-- 00152200000100000050 自定义域--> 
+		<field bit="64" filedname="MacKey"        	datatype="BINARY" 	attribute ="B"	 format="" 		 length="64">8CAD6AAAE6158FC7</field>			<!-- 02160AAED3A5F016 MAC-->
+	</template>
+	
+	
+	<template msgtypeid="0400" title="冲正">
+		<field bit="3"  filedname="HandlerCode" 	datatype="BCD"	    attribute ="N"	 format="" 		 length="6">190000</field>		<!-- 190000  交易处理码-->
+		<field bit="4"  filedname="Money"  			datatype="BCD"	    attribute ="N"	 format="" 		 length="12"></field>			<!-- 000000010000 交易金额-->
+		<field bit="11" filedname="SerialNum"  		datatype="BCD"	    attribute ="N"	 format="" 		 length="6"></field>			<!-- 001086 终端交易流水号-->
+		<field bit="14" filedname="EffectiveDate"  	datatype="BCD"	    attribute ="N"	 format="" 		 length="4"></field>			<!-- 卡有效期 -->
+		<field bit="22" filedname="InputMode"  		datatype="BCD"	    attribute ="N"	 format="" 		 length="3">021</field>			<!-- 0210 服务点输入方式码-->
+		<field bit="23" filedname="SequenceNum"   	datatype="BCD"	    attribute ="N" 	 format="" 		 length="3"></field>			<!-- 卡序列号 -->
+		<field bit="25" filedname="ConditionCode"  	datatype="BCD"	    attribute ="N"	 format="" 		 length="2">82</field>			<!-- 82 服务点条件码-->
+		<field bit="35" filedname="TwoTrack"  		datatype="BCD"	    attribute ="N_"	 format="LLVAR"  length="37"></field>			<!-- 2462239688807253120D222222 2磁道数据-->
+		<field bit="36" filedname="ThreeTrack"  	datatype="BCD"	    attribute ="N_"	 format="LLLVAR" length="104"></field>			<!--  002462239688807253120D333333 3磁道数据-->
+		<field bit="38" filedname="ResponseCode"  	datatype="ASC"	    attribute ="ANS" format="" 		 length="6"></field>			<!-- 授权标识应答码 -->
+		<field bit="39" filedname="ResponseCode1"  	datatype="ASC"	    attribute ="ANS" format="" 		 length="2">06</field>			<!-- 应答码 -->
+		<field bit="41" filedname="TerminalsCode"  	datatype="ASC" 	    attribute ="ANS" format="" 		 length="8"></field>			<!-- 3134353930303031 终端代码-->
+		<field bit="42" filedname="MerchantCdoe"  	datatype="ASC" 	    attribute ="ANS" format="" 		 length="15"></field>			<!-- 343539343230313933393930303031 商户代码-->
+		<field bit="49" filedname="CurrencyCode"  	datatype="ASC" 	    attribute ="ANS" format="" 		 length="3">156</field>			<!-- 313536 交易货币代码-->
+		<!-- <field bit="55" filedname="IcCardDate"  	datatype="ASC" 	    attribute ="ANS" format="LLLVAR" length="255"></field> -->			<!-- IC卡数据域 -->
+		<field bit="60" filedname="Custom"   		datatype="BCD"     attribute ="N_"	 format="LLLVAR" length="11">22000001000</field>			<!-- 0011000000000030 自定义域-->
+		<field bit="61" filedname="OriginalData"  	datatype="BCD" 	    attribute ="N_" format="LLLVAR" length="255">ISMUST</field>			<!-- 原始交易数据 -->
+		<field bit="64" filedname="MacKey"  		datatype="BINARY" 	attribute ="B"	 format="" 		 length="64">8CAD6AAAE6158FC7</field>			<!-- MAC KEY -->
+	</template>
+	
+	<parseinfo msgtypeid="0810" title="签到">
+		<field bit="11"  datatype="BCD"	attribute ="N" 	  format="" 		 length="6" />
+		<field bit="12"  datatype="BCD"	attribute ="N"    format="" 		 length="6" />
+		<field bit="13"  datatype="BCD"	attribute ="N"    format="" 		 length="4" />
+		<field bit="32"  datatype="BCD" attribute ="N_"	  format="LLVAR"  	 length="11"/>
+		<field bit="37"  datatype="ASC" attribute ="ANS"  format="" 		 length="12"/>
+		<field bit="39"  datatype="ASC" attribute ="ANS"  format="" 		 length="2"/>
+		<field bit="41"  datatype="ASC" attribute ="ANS"  format="" 		 length="8"/>
+		<field bit="42"  datatype="ASC" attribute ="ANS"  format="" 		 length="15"/>
+		<field bit="60"  datatype="BCD" attribute ="N_"	  format="LLLVAR" 	 length="100"/>
+		<field bit="62"  datatype="BINARY" attribute ="B" format="LLLVAR"    length="80"/>
+		<field bit="63"  datatype="ASC" attribute ="ANS"  format="LLLVAR" 	 length="3"/>
+	</parseinfo>
+	
+	<parseinfo msgtypeid="0210" title="消费">
+		<field bit="2"  datatype="BCD"	    attribute ="N_"  format="LLVAR"  length="19"/>
+		<field bit="3"  datatype="BCD"	    attribute ="N"	 format="" 		 length="6"/>
+		<field bit="4"  datatype="BCD"	    attribute ="N"	 format="" 		 length="12"/>
+		<field bit="11" datatype="BCD"	    attribute ="N"	 format="" 		 length="6"/>
+		<field bit="12" datatype="BCD"	    attribute ="N"	 format="" 		 length="6"/>
+		<field bit="13" datatype="BCD"	    attribute ="N"	 format="" 		 length="4"/>
+		<field bit="14" datatype="BCD"	    attribute ="N"	 format="" 		 length="4"/>
+		<field bit="15" datatype="BCD"	    attribute ="N"	 format="" 		 length="4"/>
+		<field bit="22" datatype="BCD"	    attribute ="N"	 format="" 		 length="3"/>
+		<field bit="23" datatype="BCD"	    attribute ="N"	 format="" 		 length="3"/>
+		<field bit="25" datatype="BCD"	    attribute ="N"	 format="" 		 length="2"/>
+		<field bit="26" datatype="BCD"	    attribute ="N"	 format="" 		 length="2"/>
+		<field bit="32" datatype="BCD"	    attribute ="N"	 format="LLVAR"  length="11"/>
+		<field bit="35" datatype="BCD"	    attribute ="N_"	 format="LLVAR"  length="37"/>
+		<field bit="36" datatype="BCD"	    attribute ="N_"	 format="LLLVAR" length="104"/>
+		<field bit="37" datatype="ASC"	    attribute ="ANS" format="" 		 length="12"/>
+		<field bit="38" datatype="ASC"	    attribute ="ANS" format="" 		 length="6"/>
+		<field bit="39" datatype="ASC"	    attribute ="ANS" format="" 		 length="2"/>
+		<field bit="41" datatype="ASC" 	    attribute ="ANS" format="" 		 length="8"/>
+		<field bit="42" datatype="ASC" 	    attribute ="ANS" format="" 		 length="15"/>
+		<field bit="48" datatype="ASC" 	    attribute ="ANS" format="LLLVAR" length="600"/>
+		<field bit="49" datatype="ASC" 	    attribute ="ANS" format="" 		 length="3"/>
+		<field bit="52" datatype="BINARY" 	attribute ="B"	 format="" 		 length="64"/>
+		<field bit="53" datatype="BCD" 	    attribute ="N"	 format="" 		 length="16"/>
+		<field bit="55" datatype="ASC" 	    attribute ="ANS" format="LLLVAR" length="255"/>
+		<field bit="59" datatype="ASC" 	    attribute ="ANS" format="LLLVAR" length="600"/>
+		<field bit="60" datatype="BCD" 	    attribute ="N"   format="LLLVAR" length="100"/>
+		<field bit="61" datatype="ASC" 	    attribute ="ANS" format="LLLVAR" length="255"/>
+		<field bit="63" datatype="ASC" 	    attribute ="ANS" format="LLLVAR" length="512"/>
+		<field bit="64" datatype="BINARY" 	attribute ="B"	 format="" 		 length="64"/>
+	</parseinfo>
+	
+	<parseinfo msgtypeid="0410" title="冲正">
+		<field bit="3"  datatype="BCD"	    attribute ="N"	 format="" 		 length="6"/>
+		<field bit="4"  datatype="BCD"	    attribute ="N"	 format="" 		 length="12"/>
+		<field bit="11" datatype="BCD"	    attribute ="N"	 format="" 		 length="6"/>
+		<field bit="12" datatype="BCD"	    attribute ="N"	 format="" 		 length="6"/>
+		<field bit="13" datatype="BCD"	    attribute ="N"	 format="" 		 length="4"/>
+		<field bit="14" datatype="BCD"	    attribute ="N"	 format="" 		 length="4"/>
+		<field bit="15" datatype="BCD"	    attribute ="N"	 format="" 		 length="4"/>
+		<field bit="22" datatype="BCD"	    attribute ="N"	 format="" 		 length="3"/>
+		<field bit="23"  datatype="BCD"	    attribute ="N" 	 format="" 		 length="3"/>	
+		<field bit="25" datatype="BCD"	    attribute ="N"	 format="" 		 length="2"/>
+		<field bit="35" datatype="BCD"	    attribute ="N_"	 format="LLVAR"  length="37"/>
+		<field bit="36" datatype="BCD"	    attribute ="N_"	 format="LLLVAR" length="104"/>
+		<field bit="37" datatype="ASC"	    attribute ="ANS" format="" 		 length="12"/>s
+		<field bit="38" datatype="ASC"	    attribute ="ANS" format="" 		 length="6"/>
+		<field bit="39" datatype="ASC"	    attribute ="ANS" format="" 		 length="2"/>
+		<field bit="41" datatype="ASC" 	    attribute ="ANS" format="" 		 length="8"/>
+		<field bit="42" datatype="ASC" 	    attribute ="ANS" format="" 		 length="15"/>
+		<field bit="49" datatype="ASC" 	    attribute ="ANS" format="" 		 length="3"/>
+		<field bit="55" datatype="ASC" 	    attribute ="ANS" format="LLLVAR" length="255"/>
+		<field bit="60"  datatype="BCD"     attribute ="N_"	 format="LLLVAR" length="100"/>
+		<field bit="61" datatype="BCD" 	    attribute ="N_" format="LLLVAR" length="255"/>
+		<field bit="64" datatype="BINARY" 	attribute ="B"	 format="" 		 length="64"/>
+	</parseinfo>
+	
+</j8583cn-config>

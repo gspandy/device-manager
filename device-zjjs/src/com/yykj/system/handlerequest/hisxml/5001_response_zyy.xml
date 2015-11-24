@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="GBK" ?>
+<Response>
+	<TransCode>5001</TransCode>
+	<ResultCode>0</ResultCode>
+	<ErrorMsg>成功</ErrorMsg>
+	<RegisterNo>1231313131</RegisterNo>
+	<List>
+		<Item>
+			<ReceiptNo>0001561207</ReceiptNo>
+			<ReceiptTime>2015-09-03 12:18:19</ReceiptTime>
+			<BillDept>骨一科</BillDept>
+			<ExecDept>住院西药房</ExecDept>
+			<Doctor>熊家亭</Doctor>
+			<FeesType>自费</FeesType>
+			<FeesItem>西药</FeesItem>
+			<GroupID>0101014040301</GroupID>
+			<GroupName>复方角菜酸酯栓(太宁)</GroupName>
+			<ItemID>0101014040301</ItemID>
+			<ItemName>复方角菜酸酯栓(太宁)</ItemName>
+			<ItemUnit>粒</ItemUnit>
+			<Num>12</Num>
+			<Price>2.4054</Price>
+			<ShouldMoney>10</ShouldMoney>
+			<ActualMoney>10</ActualMoney>
+		</Item>
+		
+		<Item>
+			<ReceiptNo>0001561207</ReceiptNo>
+			<ReceiptTime>2015-09-03 12:18:19</ReceiptTime>
+			<BillDept>骨一科</BillDept>
+			<ExecDept>住院西药房</ExecDept>
+			<Doctor>熊家亭</Doctor>
+			<FeesType>自费</FeesType>
+			<FeesItem>西药</FeesItem>
+			<GroupID>0101014040301</GroupID>
+			<GroupName>复方角菜酸酯栓(太宁)</GroupName>
+			<ItemID>0101014040301</ItemID>
+			<ItemName>复方角菜酸酯栓(太宁)</ItemName>
+			<ItemUnit>粒</ItemUnit>
+			<Num>12</Num>
+			<Price>2.4054</Price>
+			<ShouldMoney>20</ShouldMoney>
+			<ActualMoney>20</ActualMoney>
+		</Item>
+		
+		<Item>
+			<ReceiptNo>0001561208</ReceiptNo>
+			<ReceiptTime>2015-09-03 12:18:19</ReceiptTime>
+			<BillDept>骨一科</BillDept>
+			<ExecDept>住院西药房</ExecDept>
+			<Doctor>熊家亭</Doctor>
+			<FeesType>自费</FeesType>
+			<FeesItem>中成药</FeesItem>
+			<GroupID>0202027028101</GroupID>
+			<GroupName>复方胃痛胶囊</GroupName>
+			<ItemID>0202027028101</ItemID>
+			<ItemName>复方胃痛胶囊</ItemName>
+			<ItemUnit>盒</ItemUnit>
+			<Num>18</Num>
+			<Price>64.86</Price>
+			<ShouldMoney>200</ShouldMoney>
+			<ActualMoney>200</ActualMoney>
+		</Item>
+		
+		<Item>
+			<ReceiptNo>0001561209</ReceiptNo>
+			<ReceiptTime>2015-09-03 12:18:19</ReceiptTime>
+			<BillDept>骨一科</BillDept>
+			<ExecDept>住院西药房</ExecDept>
+			<Doctor>熊家亭</Doctor>
+			<FeesType>自费</FeesType>
+			<FeesItem>中成药</FeesItem>
+			<GroupID>0202027028101</GroupID>
+			<GroupName>复方胃痛胶囊</GroupName>
+			<ItemID>0202027028101</ItemID>
+			<ItemName>复方胃痛胶囊</ItemName>
+			<ItemUnit>盒</ItemUnit>
+			<Num>18</Num>
+			<Price>64.86</Price>
+			<ShouldMoney>100</ShouldMoney>
+			<ActualMoney>100</ActualMoney>
+		</Item>
+	</List>
+</Response>

@@ -1,0 +1,21 @@
+<!-- 访问地址中 的访问那个 webservice 的名字 -->
+<service name="deviceRequestHandleWS">
+	<description>Spring aware</description>
+	<!-- 通过ServiceObjectSupplier参数指定SpringServletContextObjectSupplier类来获得Spring的ApplicationContext对象 -->
+	<parameter name="ServiceObjectSupplier">
+		org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier
+	</parameter>
+
+	<!-- 配置在 applicationContext 中配置的 bean,, 这里的值域 bean 中的 id 事一样的，否则就报错找不到 bean 
+		错 -->
+
+	<parameter name="SpringBeanName">deviceRequestHandleWS</parameter>
+	<messageReceivers>
+		<!-- 配置没有返回值的方法 lessonAction 的第一个方法 -->
+		<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+			class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />       
+			<!-- 配置没有返回值的方法 lessonAction 的第一个方法 ，一直下去 
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only" 
+			class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" /> -->
+	</messageReceivers>
+</service>

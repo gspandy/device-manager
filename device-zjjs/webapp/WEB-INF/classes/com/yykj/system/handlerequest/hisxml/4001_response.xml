@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Response>
+	<TransCode>4001</TransCode>
+	<ResultCode>0</ResultCode>
+	<ErrorMsg></ErrorMsg>
+	<List>
+		<Item>
+			<CardTypeName>普通</CardTypeName>
+		</Item>
+		<Item>
+			<CardTypeName>专科</CardTypeName>
+		</Item>
+		<Item>
+			<CardTypeName>专家</CardTypeName>
+		</Item>
+		<Item>
+			<CardTypeName>急诊</CardTypeName>
+		</Item>
+	</List>
+</Response>

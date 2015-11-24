@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="GBK" standalone="no"?>
+<Root>
+	<Head>
+		<TranCode>2015012</TranCode>
+		<ChannelDate>2015-10-01 13:21:59</ChannelDate>
+	</Head>
+	<Data>
+		<CardTypeID>1</CardTypeID>
+		<CardNo>6228480058063832073</CardNo>
+		<PatientName>李某某</PatientName>
+		<Sex>男</Sex>
+		<Birthday>1988-01-01</Birthday>
+		<Age>27</Age>
+		<IDCardNo>420528198704163819</IDCardNo>
+		<Amt>200.11</Amt>
+		<Tel>5412157</Tel>
+		<UserId>JZH0001</UserId>
+		<SerNo>LSH00121</SerNo>
+		<Password>1234</Password>
+	</Data>
+</Root>

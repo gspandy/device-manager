@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<!-- <link href="../../css/bootstrap.min.css" rel="stylesheet">
+<script src="../../js/jquery-1.9.1.js"></script>
+<script src="../../js/jquery.json-2.4.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/plugin/jquery-validate/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script> -->
+
+<link href="../../frame/css/bootstrap.min.css" rel="stylesheet" />
+<link href="../../frame/css/bootstrap-responsive.min.css" rel="stylesheet" />
+<link href="../../frame/css/bootstrap-fileupload.css" rel="stylesheet" />
+<link href="../../frame/css/font-awesome.css" rel="stylesheet" />
+<link href="../../frame/css/style.css" rel="stylesheet" />
+<link href="../../frame/css/style-responsive.css" rel="stylesheet" />
+<link href="../../frame/css/style-default.css" rel="stylesheet" id="style_color" />
+
+<script src="../../frame/js/jquery-1.8.3.min.js"></script>
+<script src="../../frame/js/bootstrap.min.js"></script>
+<script src="../../frame/js/jquery.validate.min.js"></script>
+<script src="../../js/jquery.json-2.4.min.js"></script>
+<script src="../../js/comm.js"></script>
+<script src="../Js/script/manager_changepwd.js" type="text/javascript" charset="utf-8"></script>
+<style type="text/css">
+html {
+	height: 100%;
+}
+
+body {
+	background-color: white;
+	height: 100%;
+}
+
+#content {
+	padding-top: 10px;
+	height: calc(100% - 30px);
+}
+
+.font {
+	font-family: Microsoft YaHei, '宋体', Tahoma, Helvetica, Arial,
+		"\5b8b\4f53", sans-serif;
+}
+</style>
+
+</head>
+<body>
+<div id="content">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget blue">
+					<div class="widget-title">
+						<h4>
+							<i class="icon-reorder"></i>修改密码
+						</h4>
+					</div>
+					<div class="widget-body">
+						<div class="widget-body">
+							<form class="form-horizontal" role="form" id="myform">
+								<div class="control-group">
+									<label for="managercode" class="control-label">账号</label>
+									<div class="controls controls-row">
+										<input class="span4 form-control" id="managercode" name="managercode"
+											type="text" readonly="readonly">
+									</div>
+								</div>
+								<div class="control-group">
+									<label for="name" class="control-label">姓名</label>
+									<div class="controls controls-row">
+										<input class="span4 form-control" id="name" name="name"
+											type="text" readonly="readonly">
+									</div>
+								</div>
+								<div class="control-group">
+									<label for="oldpwd" class="control-label">原密码</label>
+									<div class="controls controls-row">
+										<input class="span4 form-control" id="oldpwd" name="oldpwd" type="password" >
+									</div>
+								</div>
+								<div class="control-group">
+									<label for="newpwd" class="control-label">新密码</label>
+									<div class="controls controls-row">
+										<input class="span4 form-control" id="newpwd" name="newpwd" type="password" >
+									</div>
+								</div>
+								<div class="control-group">
+									<label for="newpwd2" class="control-label">再次输入新密码</label>
+									<div class="controls controls-row">
+										<input class="span4 form-control" id="newpwd2" name="newpwd2" type="password" >
+									</div>
+								</div>
+								<input type="hidden" id="id" name="id">
+								<input type="hidden" id="password" name="password">
+								<div id="btn_div">
+									<button type="button" id="updateManager" class="btn btn-primary">保存</button>
+									<button type="button" class="btn btn-success" onClick="javascript:window.location.href='../Manager/index.html';">返回列表</button>
+								</div>
+							</form>
+						</div>
+						</div>
+						</div>
+						</div>
+						</div>
+						</div>
+						</div>
+</body>
+</html>
+<script>
+var userid = getId("id");
+$(document).ready(function () { 
+	loadForm(userid); 
+	}); 
+	
+function getId(paras){ 
+	var url = location.href;  
+	var paraString = url.substring(url.indexOf("?")+1,url.length).split("&");  
+	var paraObj = {}  
+	for (i=0; j=paraString[i]; i++){  
+	paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length);  
+	}  
+	var returnValue = paraObj[paras.toLowerCase()];  
+	if(typeof(returnValue)=="undefined"){  
+	return "";  
+	}else{  
+	return returnValue; 
+	}
+}
+
+function loadForm(userid) { 
+	$.ajax({
+        type: "get",
+        url: "../../DeviceManagerServlet?method=getManagerById",
+        data:{"managerid":userid},
+        dataType: "json",
+        contentType: "application/json;charset=utf-8",
+        success: function(data){
+        	$("#id").attr("value",data.id);
+        	$("#managercode").attr("value",data.managercode);
+        	$("#name").attr("value",data.name);
+        	$("#password").attr("value",data.password);
+        }, error: function(){
+              alert("请求出错");
+        }
+  })
+} 
+</script>

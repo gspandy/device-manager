@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="GBK"?>
+<Root>
+	<Head>
+		<TranCode>2015003</TranCode><!-- 业务代码 -->
+		<ChannelDate>2015-10-01 13:21:59</ChannelDate><!-- 发起方交易时间 -->
+	</Head>
+	<Data>
+		<IdCard>420122196212224727</IdCard><!-- 身份证号码 -->
+		<SerialNum>200002</SerialNum><!-- 设备序列号 -->
+		<ExecDept>住院西药房</ExecDept><!-- 执行科室 -->
+		<PatientId>31009992</PatientId><!-- 病人ID -->
+	</Data>
+</Root>

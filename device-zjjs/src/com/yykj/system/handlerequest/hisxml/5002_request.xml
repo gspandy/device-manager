@@ -1,0 +1,23 @@
+﻿<Request>
+	<TransCode>5002</TransCode>
+	<CardTypeID>1</CardTypeID>
+	<CardNo>422727197600001111</CardNo>
+	<Password></Password>
+	<PatientID>300000741411</PatientID>
+	<UserId>YYM001</UserId>
+	<ReceiptNo>0001561346</ReceiptNo>
+	<List>
+		<Item>
+			<PayType>3</PayType>
+			<PayMode>1</PayMode>
+			<PayAmt>60.26</PayAmt>
+			<PayNo>1510130001</PayNo>
+			<PayCardNo>6230290020482382</PayCardNo>
+			<PayNote>诊间结算</PayNote>
+			<ExpandList>
+				<ItemName></ItemName>
+				<ItemValue></ItemValue>
+			</ExpandList>
+		</Item>
+	</List>
+</Request>

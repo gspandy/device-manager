@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+   <link href="../../frame/css/bootstrap.min.css" rel="stylesheet" />
+   <link href="../../frame/css/bootstrap-responsive.min.css" rel="stylesheet" />
+   <link href="../../frame/css/bootstrap-fileupload.css" rel="stylesheet" />
+   <link href="../../frame/css/font-awesome.css" rel="stylesheet" />
+   <link href="../../frame/css/style.css" rel="stylesheet" />
+   <link href="../../frame/css/style-responsive.css" rel="stylesheet" />
+   <link href="../../frame/css/style-default.css" rel="stylesheet" id="style_color" />
+    
+   
+   <script src="../../frame/js/jquery-1.8.3.min.js"></script>
+   <script src="../../frame/js/bootstrap.min.js"></script>
+   <script src="../Js/script/resetpwd.js"></script>
+   <script type="text/javascript" src="../../frame/js/tableExport.js"></script>
+   <script type="text/javascript" src="../../frame/js/base64.js"></script>
+   <style type="text/css">
+   		html {
+   		 	height: 100%;
+        }
+        body{
+            background-color: white;
+            height: 100%;
+        } 
+        #content{
+        	padding-top:10px; 
+        	height: calc(100% - 30px); 
+        }
+        .font{
+        	 font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+        }
+         #too:hover{border:1px solid #CCCCCC} 
+    </style>
+</head>
+<body>
+	<div id="content">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget blue">
+					<div class="widget-title">
+						<h4>
+							<i class="icon-reorder"></i> 用户列表
+						</h4>
+						<span class="tools"> 
+							<!-- <a href="javascript:;" class="icon-chevron-down"></a> 
+							<a href="javascript:;" class="icon-remove"></a> -->
+						</span>
+					</div>
+					<div class="widget-body">
+						<div class="row-fluid">
+							<form class="form-inline definewidth m20" name="myform">
+								<select id="param" name="param" style="width: 94px;">
+											<option value="0">全部用户</option>
+					        				<option value="1">登录账户</option>
+					        				<option value="2">用户姓名</option>
+					        				<!-- <option value="2">用户职位</option> -->
+					        	</select>
+								<input type="text" name="pvalue" id="pvalue" placeholder="查询条件..." >	&nbsp;&nbsp;			        			
+								<button type="button" class="btn  btn-primary" id="btnSearch" name="btnSearch" >查询</button>
+								<!--onClick="javascript:window.location.href='../User/resetpwd.html'"  -->
+								&nbsp;&nbsp;
+								<button type="button" class="btn  btn-success" id="batchReset">批量重置</button>
+								<div class="btn-group pull-right" id="too">
+                                   <button class="btn dropdown-toggle" data-toggle="dropdown" style="background-color: transparent;">
+                                    <i class="icon-wrench"></i>
+                                   		工具
+                                   	<i class="icon-angle-down"></i>
+                                   </button>
+                                     <ul class="dropdown-menu pull-right">
+                                         <!--  <li><a href="#"><i class="icon-print"></i>&nbsp;报表打印</a></li> -->
+                                          <li><a href="javascript:$('#tbuser').tableExport({type:'excel',escape:'false',ignoreColumn:'[0,8]'});">
+                                          <i class="icon-windows"></i>&nbsp;导出Excel</a></li>
+                                     </ul>
+                             	</div>
+							</form>
+						</div>
+						<table class="table table-striped table-hover font" id='tbuser'>   
+							<thead>
+								<tr style="background-color:#999999;color: white;">
+									<th style="width:8px;"><input type="checkbox" class="group-checkable"
+									 data-set="#sample_1 .checkboxes" id="chb" onclick="chk();"/></th>
+									<th style="text-align: center;">登录账号</th>
+									<th style="text-align: center;">用户姓名</th>
+									<th style="text-align: center;">性别</th>
+									<th style="text-align: center;">联系电话</th>
+									<th style="text-align: center;">办公电话</th>
+									<th style="text-align: center;">邮件地址</th>
+									<th style='text-align: center;'>操作</th>
+								</tr>
+							</thead>
+							<tbody id="tbd"> 
+							</tbody>
+						</table>
+						<!-- 分页 -->
+						<div class="row-fluid">
+							<div class="span6">
+								<div class="dataTables_info" >
+								共<span id="totalRecord">0</span>条记录,当前<span id="currentPage">0</span>/<span id="totalPage">0</span>页
+								</div>
+							</div>
+							<div class="span6"> 
+								<div class="dataTables_paginate paging_bootstrap pagination">
+									<ul>
+										<li class="prev"><a href="javascript:home();">首页</a></li>
+										<li><a href="javascript:previous();">上一页</a></li>
+										<li><a href="javascript:next();">下一页</a></li>
+										<li class="next"><a href="javascript:last();">末页</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+<script>
+	
+</script>

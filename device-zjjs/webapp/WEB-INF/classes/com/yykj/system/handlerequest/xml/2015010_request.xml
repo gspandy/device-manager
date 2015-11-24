@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="GBK" standalone="no"?>
+<Root>
+	<Head>
+		<TranCode>2015010</TranCode>
+		<ChannelDate>2015-10-01 13:21:59</ChannelDate>
+	</Head>
+	<Data>
+		<RegType>1</RegType>
+		<Day>2015-10-11</Day>
+		<RigsterType>急诊科</RigsterType>
+		<DeptID>11</DeptID>
+		<Start>1</Start>
+		<RequestQty>2</RequestQty>
+		<UserId>wxapp</UserId>
+	</Data>
+</Root>

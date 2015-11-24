@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>江夏中医院</title>
+<meta name="viewport" content="width=device-width,  initial-scale=1" />
+<link rel="stylesheet" type="text/css"  href="css/themes/default/jquery.mobile-1.4.5.min.css" />
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript">
+	$(document).on('mobileinit',function(){
+		  $.mobile.pageLoadErrorMessage="404 页面没有找到"
+	});
+</script>
+</head>
+<body>
+	<div data-role="page" >
+		<link rel="stylesheet" type="text/css"  href="css/style.css" />
+		<link rel="stylesheet" type="text/css"  href="css/iscroll.css" />
+		<script type="text/javascript" src="js/iscroll.js"></script>
+				
+		<style type="text/css">
+		.btn_music {
+			display: inline-block;
+			width: 35px;
+			height: 35px;
+			background: url('images/play.png') no-repeat center center;
+			background-size: 100% auto;
+			position: absolute;
+			z-index: 100;
+			left: 15px;
+			top: 30px;
+		}
+		
+		.btn_music.on {
+			background-image: url("images/stop.png");
+		}
+		</style>
+		<span id="playbox" class="btn_music" onclick="playbox.init(this).play();">
+			<audio id="audio" loop src="images/4.mp3"></audio>
+		</span>
+		<div class="banner">
+			<div id="wrapper">
+				<div id="scroller">
+					<ul id="thelist">
+						<li><a href="javascript:void(0)"><img src="images/3.jpg" /></a></li>
+						<li><a href="javascript:void(0)"><img src="images/4.jpg" /></a></li>
+						<li><a href="javascript:void(0)"><img src="images/2.jpg" /></a></li>
+						<li><a href="javascript:void(0)"><img src="images/1.gif" /></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="nav">
+				<ul id="indicator">
+					<li class="active"></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<ul class="mainmenu">
+			<li><a href="hsp_introduce.html" data-transition="slide"><b><img src="images/tb01.png" /></b><span>医院介绍</span></a></li>
+			<li><a href="/" data-transition="slide"><b><img src="images/tb02.png" /></b><span>科室、专家介绍</span></a></li>
+			<li><a href="/" data-transition="slide"><b><img src="images/tb03.png" /></b><span>本院动态</span></a></li>
+			<li><a href="gh_index.html" data-transition="slide"><b><img src="images/tb04.png" /></b><span>就医助手</span></a></li>
+			<li><a href="hsp_payment.html"  data-transition="slide"><b><img src="images/tb05.png" /></b><span>就医缴费</span></a></li>
+			<li><a href="/" data-transition="slide"><b><img src="images/tb06.png" /></b><span>我的资料</span></a></li>
+			<li><a href="/" data-transition="slide"><b><img src="images/tb06.png" /></b><span>我的挂号</span></a></li>
+			<li><a href="/" data-transition="slide"><b><img src="images/tb07.png" /></b><span>我的缴费</span></a></li>
+			<li><a href="/" data-transition="slide"><b><img src="images/tb08.png" /></b><span>关于我们</span></a></li>
+		</ul>
+		<script type="text/javascript">
+			//页面加裁完成后播放音乐
+			$(document).on("pageinit", function() {
+				//playbox.init("playbox");
+			});
+
+			//播放按钮事件
+			var playbox = (function() {
+				var _playbox = function() {
+					var that = this;
+					that.box = null;
+					that.player = null;
+					that.src = null;
+					that.on = false;
+					that.autoPlayFix = {
+						on : true,
+						evtName : ("ontouchstart" in window) ? "touchstart": "mouseover"
+					}
+				}
+
+				_playbox.prototype = {
+					init : function(box_ele) {
+						this.box = "string" === typeof (box_ele) ? document .getElementById(box_ele) : box_ele;
+						this.player = this.box.querySelectorAll("audio")[0];
+						this.src = this.player.src;
+						this.init = function() {
+							return this;
+						}
+						this.autoPlayEvt(true);
+						return this;
+					},
+					play : function() {
+						if (this.autoPlayFix.on) {
+							this.autoPlayFix.on = false;
+							this.autoPlayEvt(false);
+						}
+						this.on = !this.on;
+						if (true == this.on) {
+							this.player.src = this.src;
+							this.player.play();
+						} else {
+							this.player.pause();
+							this.player.src = null;
+						}
+						if ("function" == typeof (this.play_fn)) {
+							this.play_fn.call(this);
+						}
+					},
+					handleEvent : function(evt) {
+						this.play();
+					},
+					autoPlayEvt : function(important) {
+						if (important || this.autoPlayFix.on) {
+							document.body.addEventListener(this.autoPlayFix.evtName, this, false);
+						} else {
+							document.body.removeEventListener(this.autoPlayFix.evtName, this, false);
+						}
+					}
+				}
+				return new _playbox();
+			})();
+
+			playbox.play_fn = function() {
+				this.box.className = this.on ? "btn_music on" : "btn_music";
+			}
+
+			//初始化幻灯片
+			var myScroll;
+			function loaded() {
+				myScroll = new iScroll('wrapper',{
+					snap : true,
+					momentum : false,
+					hScrollbar : false,
+					onScrollEnd : function() {
+						document.querySelector('#indicator > li.active').className = '';
+						document.querySelector('#indicator > li:nth-child('+ (this.currPageX + 1) + ')').className = 'active';
+					}
+				});
+			}
+			document.addEventListener('DOMContentLoaded', loaded, false);
+
+			var count = document.getElementById("thelist").getElementsByTagName("img").length;
+			for (i = 0; i < count; i++) {
+				document.getElementById("thelist").getElementsByTagName("img").item(i).style.cssText = " width:"+ document.body.clientWidth + "px";
+			}
+			document.getElementById("scroller").style.cssText = " width:"+ document.body.clientWidth * count + "px";
+
+			//幻灯片轮循
+			setInterval(function() {
+				myScroll.scrollToPage('next', 0, 400, count);
+			}, 3500);
+
+			//窗口大小改变事件
+			window.onresize = function() {
+				for (i = 0; i < count; i++) {
+					document.getElementById("thelist").getElementsByTagName("img").item(i).style.cssText = " width:"+ document.body.clientWidth + "px";
+				}
+				document.getElementById("scroller").style.cssText = " width:"+ document.body.clientWidth * count + "px";
+			}
+		</script>
+	</div>
+</body>
+</html>

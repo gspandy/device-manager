@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Response>
+	<TransCode>5003</TransCode>
+	<ResultCode>0</ResultCode>
+	<ErrorMsg>成功</ErrorMsg>
+	<Count>100</Count>
+	<ReturnQty>10</ReturnQty>
+	<List>
+		<Item>
+			<ReceiptNo>PT00121</ReceiptNo>
+			<ReceiptTime>2015-10-11 12:22:22</ReceiptTime>
+			<BillDept>骨一科</BillDept>
+			<ExecDept>西药房</ExecDept>
+			<Doctor>李医生</Doctor>
+			<FeesType>普通</FeesType>
+			<FeesItem>西药费</FeesItem>
+			<GroupID>0001212</GroupID>
+			<GroupName>阿莫西林</GroupName>
+			<ItemID>0001212</ItemID>
+			<ItemName>阿莫西林</ItemName>
+			<ItemUnit>盒</ItemUnit>
+			<Num>10</Num>
+			<Price>2.9</Price>
+		</Item>
+		<Item>
+			<ReceiptNo>PT00121</ReceiptNo>
+			<ReceiptTime>2015-10-11 12:22:22</ReceiptTime>
+			<BillDept>骨一科</BillDept>
+			<ExecDept>西药房</ExecDept>
+			<Doctor>李医生</Doctor>
+			<FeesType>普通</FeesType>
+			<FeesItem>西药费</FeesItem>
+			<GroupID>0001212</GroupID>
+			<GroupName>阿莫西林AAA</GroupName>
+			<ItemID>0001212</ItemID>
+			<ItemName>阿莫西林</ItemName>
+			<ItemUnit>盒</ItemUnit>
+			<Num>10</Num>
+			<Price>2.9</Price>
+		</Item>
+		<Item>
+			<ReceiptNo>PT00122</ReceiptNo>
+			<ReceiptTime>2015-10-11 12:22:22</ReceiptTime>
+			<BillDept>骨一科</BillDept>
+			<ExecDept>西药房</ExecDept>
+			<Doctor>李医生</Doctor>
+			<FeesType>普通</FeesType>
+			<FeesItem>西药费</FeesItem>
+			<GroupID>0001212</GroupID>
+			<GroupName>阿莫西林</GroupName>
+			<ItemID>0001212</ItemID>
+			<ItemName>阿莫西林</ItemName>
+			<ItemUnit>盒</ItemUnit>
+			<Num>10</Num>
+			<Price>2.9</Price>
+		</Item>
+	</List>
+</Response>

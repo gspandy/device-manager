@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="GBK" standalone="no"?>
+<Root>
+	<Head>
+		<TranCode>2015011</TranCode>
+		<ChannelDate>2015-10-01 13:21:59</ChannelDate>
+	</Head>
+	<Data>
+		<UserId>JJM0001</UserId>
+		<RegType>1</RegType>
+		<Day>2015-10-10</Day>
+		<PatientID>3014232</PatientID>
+		<CardTypeID>1</CardTypeID>
+		<CardNo>420528198704163818</CardNo>
+		<Password></Password>
+		<AsRowid>1</AsRowid>
+		<TimeValue></TimeValue>
+		<PayType>3</PayType>
+		<PayMode>3</PayMode>
+		<PayAmt>3.8</PayAmt>
+		<PayNo>YHLSH0001</PayNo>
+		<PayCardNo>6228480058063832073</PayCardNo>
+		<PayNote>说明</PayNote>
+	</Data>
+</Root>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bootstrap 实例 - 带语境色彩的面板</title>
+<meta charset="UTF-8">
+<link href="../../frame/css/bootstrap.min.css" rel="stylesheet" />
+<link href="../../frame/css/bootstrap-responsive.min.css"
+	rel="stylesheet" />
+<link href="../../frame/css/bootstrap-fileupload.css" rel="stylesheet" />
+<link href="../../frame/css/font-awesome.css" rel="stylesheet" />
+<link href="../../frame/css/style.css" rel="stylesheet" />
+<link href="../../frame/css/style-responsive.css" rel="stylesheet" />
+<link href="../../frame/css/style-default.css" rel="stylesheet"
+	id="style_color" />
+
+<script src="../../frame/js/jquery-1.8.3.min.js"></script>
+<script src="../../frame/js/bootstrap.min.js"></script>
+<script src="../../frame/js/jquery.validate.min.js"></script>
+
+
+<script src="../Js/comm.js"></script>
+<script src="../Js/script/Role_add.js" type="text/javascript"
+	charset="utf-8"></script>
+<style type="text/css">
+/* body{
+	font-size: 12px;
+}
+#table_ {
+	width: 850px;
+}
+
+#add_user {
+	width: 800px;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+#btn_div {
+	text-align: right;
+	margin-right: 10px;
+} */
+html {
+	height: 100%;
+}
+
+body {
+	background-color: white;
+	height: 100%;
+}
+
+#content {
+	padding-top: 10px;
+	height: calc(100% - 30px);
+}
+
+.font {
+	font-family: Microsoft YaHei, '宋体', Tahoma, Helvetica, Arial,
+		"\5b8b\4f53", sans-serif;
+}
+</style>
+
+</head>
+<body>
+	<div id="content">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="widget blue">
+						<div class="widget-title">
+							<h4>
+								<i class="icon-reorder"></i>修改角色
+							</h4>
+						</div>
+						<div class="widget-body">
+							<form class="form-horizontal" role="form" id="myform">
+								<div class="control-group">
+									<label for="rolecode" class="col-sm-2 control-label">角色编号</label>
+									<div class="controls controls-row">
+										<input class="form-control" id="rolecode" name="rolecode"
+											type="text" placeholder="请输入角色编号" readonly="readonly">
+									</div>
+								</div>
+								<div class="control-group">
+									<label for="rolename" class="col-sm-2 control-label">角色名称
+									</label>
+									<div class="controls controls-row">
+										<input class="form-control" id="rolename" name="rolename"
+											type="text" placeholder="请输入角色名称">
+									</div>
+								</div>
+								<div class="control-group">
+									<label for="description" class="col-sm-2 control-label">角色描述
+									</label>
+									<div class="controls controls-row">
+										<textarea class="form-control" id="description"
+											name="description" type="text" placeholder="请输入角色描述" rows="3"></textarea>
+									</div>
+								</div>
+
+								<input id="id" name="id" type="hidden"> <input
+									id="stateflag" name="stateflag" type="hidden"> <input
+									id="year" name="year" type="hidden"> <input
+									id="admdivcode" name="admdivcode" type="hidden">
+								<div id="btn_div">
+									<button type="button" id="updateRole" class="btn btn-primary">保存</button>
+									<button type="button" class="btn btn-success"
+										onClick="javascript:window.location.href='../Role/index.html';">返回列表</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+<script>
+	var roleid = getId("id");
+	$(document).ready(function() {
+		loadForm(roleid);
+	});
+
+	function getId(paras) {
+		var url = location.href;
+		var paraString = url.substring(url.indexOf("?") + 1, url.length).split(
+				"&");
+		var paraObj = {}
+		for (i = 0; j = paraString[i]; i++) {
+			paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j
+					.substring(j.indexOf("=") + 1, j.length);
+		}
+		var returnValue = paraObj[paras.toLowerCase()];
+		if (typeof (returnValue) == "undefined") {
+			return "";
+		} else {
+			return returnValue;
+		}
+	}
+
+	function loadForm(roleid) {
+		$
+				.ajax({
+					type : "get",
+					url : "../../SysRoleServlet?method=getRoleById",
+					data : {
+						"roleid" : roleid
+					},
+					dataType : "json",
+					contentType : "application/json;charset=utf-8",
+					success : function(data) {
+						//alert(data.id);
+						$("#id").attr("value", data.id);
+						$("#rolecode").attr("value", data.rolecode);
+						$("#rolename").attr("value", data.rolename);
+						document.getElementById("description").innerText = data.description;
+						/* $("#description").attr("text",data.description); */
+						$("#stateflag").attr("value", data.stateflag);
+						$("#year").attr("value", data.year);
+						$("#admdivcode").attr("value", data.admdivcode);
+					},
+					error : function() {
+						alert("请求出错");
+					}
+				})
+	}
+</script>

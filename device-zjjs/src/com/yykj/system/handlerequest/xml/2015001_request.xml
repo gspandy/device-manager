@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="GBK"?>
+<Root>
+	<Head>
+		<TranCode>2015001</TranCode>
+		<ChannelDate>2015-10-01 13:21:59</ChannelDate>
+	</Head>
+	<Data>
+		<DevNum>100001</DevNum>
+		<SamNum>200002</SamNum>
+		<SerialNum>at0001</SerialNum>
+	</Data>
+</Root>

@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+	<link href="../../frame/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../../frame/css/bootstrap-responsive.min.css" rel="stylesheet" />
+	<link href="../../frame/css/font-awesome.css" rel="stylesheet" />
+	<link href="../../frame/css/style.css" rel="stylesheet" />
+	<link href="../../frame/css/style-responsive.css" rel="stylesheet" />
+	<link href="../../frame/css/style-default.css" rel="stylesheet" id="style_color" />
+	<script src="../../frame/js/jquery-1.8.3.min.js"></script>
+	<script src="../../frame/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../Js/ckform.js"></script>
+    <script type="text/javascript" src="../Js/common.js"></script>
+ 	
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<form class="form-inline definewidth m20" action="index.html" method="get">    
+<!--     类别名称：
+    <input type="text" name="typename" id="typename"class="abc input-default" placeholder="" value="">&nbsp;&nbsp;  --> 
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; <button type="button" class="btn btn-success" id="addnew">新增资源</button>
+</form>
+<table class="table table-bordered table-hover definewidth m10" id="tbres">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>资源编号</th>
+        <th>资源名称</th>
+        <th>资源类型</th>
+        <th>菜单类型</th>
+        <th>资源链接</th>
+        <th>描述信息</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+</table>
+</body>
+</html>
+<script>  
+$(document).ready(function () { 
+	loadTable(); 
+	}); 
+
+function loadTable() { 
+	$.ajax({
+        type: "get",
+        url: "../../SysResourceServlet?method=getAllResource",
+        dataType: "json",
+        contentType: "application/json;charset=utf-8",
+        success: function(data){
+        	//alert(data);
+      	  $.each(data, function(i) {
+      		  var type = "菜单";
+      		  var mtype = "系统管理";
+      		  if(data[i].resourcetype=="1"){
+      			type = "按钮";
+      		  }
+      		  if(data[i].menutype==10){
+      			mtype = "业务管理";
+      		  }
+      	         $("#tbres").append("<tr><td>" + data[i].id + "</td><td>" + data[i].resourcecode + "</td>" +
+      	         		"<td>" + data[i].resourcename + "</td><td>" + type + "</td><td>" + mtype + "</td>" +
+      	         		"<td>" + data[i].resourceurl + "</td><td>" + data[i].description + "</td>" +
+      	         						"<td><a href='edit.html?id="+data[i].id+"'> 编辑 </a>"+
+      	         						"| <a href='javascript:del("+data[i].id+")'> 删除 </a></td></tr>");
+      	     });
+        }, error: function(){
+              alert("请求出错");
+        }
+  })
+} 
+
+
+    $(function () {    	   	
+		$('#addnew').click(function(){
+			window.location.href="resource_add.html";
+		 });		
+    });
+
+	function del(id)
+	{				
+		if(confirm("确定要删除吗？"))
+		{		
+			$.post("../../SysResourceServlet?method=deleteResourceById", {
+				msg : id
+			}, function(result) {
+				if (result == 'true') {
+					alert("删除成功!");
+					window.location.href="index.html";
+				}else if(result == 'existed'){
+					/* alert("该组织机构存在子节点无法删除!");
+					return; */
+				}
+			});
+			/* var url = "index.html";			
+			window.location.href=url; */
+		}				
+	}
+</script>

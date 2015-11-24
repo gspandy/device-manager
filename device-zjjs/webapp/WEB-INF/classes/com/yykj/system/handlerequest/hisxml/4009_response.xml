@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Response>
+	<TransCode>4008</TransCode>
+	<ResultCode>0</ResultCode>
+	<ErrorMsg>退号成功</ErrorMsg>
+</Response>

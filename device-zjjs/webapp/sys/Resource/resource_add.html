@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<script src="../Js/jquery.json-2.4.min.js"></script>
+<link href="../../frame/css/bootstrap.min.css" rel="stylesheet" />
+<link href="../../frame/css/bootstrap-responsive.min.css" rel="stylesheet" />
+<link href="../../frame/css/font-awesome.css" rel="stylesheet" />
+<link href="../../frame/css/style.css" rel="stylesheet" />
+<link href="../../frame/css/style-responsive.css" rel="stylesheet" />
+<link href="../../frame/css/style-default.css" rel="stylesheet" id="style_color" />
+<script src="../../frame/js/jquery-1.8.3.min.js"></script>
+<script src="../../frame/js/bootstrap.min.js"></script>
+
+<script src="../Js/comm.js"></script>
+<script src="../Js/plugin/jquery-validate/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../Js/script/Resource_add.js" type="text/javascript" charset="utf-8"></script>
+<style type="text/css">
+body{
+	font-size: 12px;
+}
+#table_ {
+	width: 850px;
+}
+
+#add_user {
+	width: 800px;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+#btn_div {
+	text-align: right;
+	margin-right: 10px;
+}
+</style>
+
+</head>
+<body>
+	<div class="panel panel-info" id="add_user">
+		<div class="panel-heading">
+			<h3 class="panel-title">添加资源</h3>
+		</div>
+		<div class="panel-body">
+			<form class="form-horizontal" role="form" id="myform">
+				<div class="form-group">
+					<label for="resourcecode" class="col-sm-2 control-label">资源编号</label>
+					<div class="col-sm-5">
+						<input class="form-control" id="resourcecode" name="resourcecode"
+							type="text" placeholder="请输入资源编号">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="resourcename" class="col-sm-2 control-label">资源名称
+					</label>
+					<div class="col-sm-5">
+						<input class="form-control" id="resourcename" name="resourcename"
+							type="text" placeholder="请输入资源名称">
+					</div>
+				</div>
+				<div class="form-group">
+				<label for="resourcetype" class="col-sm-2 control-label">设备类别
+					</label>
+					<div class="col-sm-5">
+						<select name="resourcetype" id="resourcetype" class="form-control" >
+							<option value="0">菜单</option>
+							<!-- <option value="1">按钮</option> -->
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+				<label for="menutype" class="col-sm-2 control-label">菜单类别
+					</label>
+					<div class="col-sm-5">
+						<select name="menutype" id="menutype" class="form-control" >
+							<option value="9">系统管理</option>
+							<option value="10">业务管理</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="resourceurl" class="col-sm-2 control-label">资源地址
+					</label>
+					<div class="col-sm-5">
+						<input class="form-control" id="resourceurl" name="resourceurl"
+							type="text" placeholder="请输入资源URL">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="description" class="col-sm-2 control-label">资源描述
+					</label>
+					<div class="col-sm-5">
+						<textarea class="form-control" id="description" name="description"
+							type="text" placeholder="请输入资源描述" rows="3" ></textarea>
+					</div>
+				</div>
+				
+				
+				<div id="btn_div">
+					<button type="button" id="saveRes" class="btn btn-primary">保存</button>
+					<button type="button" class="btn btn-success" onClick="javascript:window.location.href='../Resource/index.html';">返回列表</button>
+				</div>
+			</form>
+
+		</div>
+	</div>
+</body>
+</html>

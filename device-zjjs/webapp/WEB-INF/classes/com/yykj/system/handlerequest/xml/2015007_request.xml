@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="GBK" standalone="no"?>
+<Root>
+	<Head>
+		<TranCode>2015007</TranCode>
+		<ChannelDate>2015-10-01 13:21:59</ChannelDate>
+	</Head>
+	<Data>
+		<yhzh>6228480058063832073</yhzh>
+		<yhmc>徐海才</yhmc>
+		<GhId>09982332</GhId>
+		<IdCard>420528198704163819</IdCard>
+		<PatientId>88888888</PatientId>
+		<UserId>JQM0001</UserId>
+		<CardTypeID>01</CardTypeID>
+		<Bills>
+			<Bill>
+				<ReceiptNo>0001561251</ReceiptNo>
+				<ReceiptTime>2015-09-10 09:04:24</ReceiptTime>
+				<BillDept>骨一科</BillDept>
+				<Doctor>熊家亭</Doctor>
+				<ShouldMoney>15</ShouldMoney>
+				<ActualMoney>15</ActualMoney>
+				<Items>
+					<Item>
+						<ExecDept>住院西药房</ExecDept>
+						<FeesType>自费</FeesType>
+						<FeesItem>西药</FeesItem>
+						<ItemID>0101002020101</ItemID>
+						<ItemName>利福平胶囊1</ItemName>
+						<ItemUnit>粒</ItemUnit>
+						<Num>100</Num>
+						<Price>0.15</Price>
+						<ShouldMoney_Item>15</ShouldMoney_Item>
+						<ActualMoney_Item>15</ActualMoney_Item>
+					</Item>
+					<Item>
+						<ExecDept>住院西药房</ExecDept>
+						<FeesType>自费</FeesType>
+						<FeesItem>西药</FeesItem>
+						<ItemID>0101002020101</ItemID>
+						<ItemName>利福平胶囊2</ItemName>
+						<ItemUnit>粒</ItemUnit>
+						<Num>10</Num>
+						<Price>0.15</Price>
+						<ShouldMoney_Item>1.5</ShouldMoney_Item>
+						<ActualMoney_Item>1.5</ActualMoney_Item>
+					</Item>
+				</Items>
+			</Bill>
+			<Bill>
+				<ReceiptNo>0001561252</ReceiptNo>
+				<ReceiptTime>2015-09-10 09:04:24</ReceiptTime>
+				<BillDept>骨一科</BillDept>
+				<Doctor>熊家亭</Doctor>
+				<ShouldMoney>15</ShouldMoney>
+				<ActualMoney>15</ActualMoney>
+				<Items>
+					<Item>
+						<ExecDept>住院西药房</ExecDept>
+						<FeesType>自费</FeesType>
+						<FeesItem>西药</FeesItem>
+						<ItemID>0101002020101</ItemID>
+						<ItemName>利福平胶囊A</ItemName>
+						<ItemUnit>粒</ItemUnit>
+						<Num>100</Num>
+						<Price>0.15</Price>
+						<ShouldMoney_Item>15</ShouldMoney_Item>
+						<ActualMoney_Item>15</ActualMoney_Item>
+					</Item>
+					<Item>
+						<ExecDept>住院西药房</ExecDept>
+						<FeesType>自费</FeesType>
+						<FeesItem>西药</FeesItem>
+						<ItemID>0101002020101</ItemID>
+						<ItemName>利福平胶囊B</ItemName>
+						<ItemUnit>粒</ItemUnit>
+						<Num>100</Num>
+						<Price>0.15</Price>
+						<ShouldMoney_Item>15</ShouldMoney_Item>
+						<ActualMoney_Item>15</ActualMoney_Item>
+					</Item>
+				</Items>
+			</Bill>
+		</Bills>
+	</Data>
+	<UnionPay>
+		<tranType>XF</tranType>             <!-- XF：消费 CZ：冲正-->
+		<bankFlag>3</bankFlag>             <!-- 3：银联 -->
+		<amount>45.5</amount>                 <!-- 产生的交易金额 比如：4.50以分为单位-->
+		<authNum>AAA</authNum>               <!-- 预授权号 不存在直接 -->
+		<batchNum>BBB</batchNum>             <!-- 批次号 不存在直接 -->
+		<cardName>CCC</cardName>             <!-- 发卡行名称 不存在直接 -->
+		<expDate>1610</expDate>               <!-- 卡有效期 不存在直接 -->
+		<forUpdate>CCC</forUpdate>           <!-- 保留信息 不存在直接 -->
+		<merchantName>DDD</merchantName>     <!-- 商户名称 不存在直接 -->
+		<merchantNum>EEE</merchantNum>       <!-- 商户号 -->
+		<refNum>FFF</refNum>                 <!-- 检索参考号-->
+		<retMsg>00</retMsg>                 <!-- 交易结果返回描述  “00”：交易成功（详见终端常见交易返回码）-->
+		<termId>ZDH0001</termId>                 <!-- 终端号 -->
+		<traceNum>20150012</traceNum>             <!-- 交易流水号 -->
+		<track2>11111111111111111111111</track2>                 <!-- 二磁道数据-->
+		<track3>22222222222222222222222</track3>                 <!-- 三磁道数据-->
+		<tranCardNum>6228480058063832073</tranCardNum>       <!-- 交易卡号-->
+		<tranDate>20151011</tranDate>             <!-- 交易日期 YYYYMMDD-->
+		<tranTime>152321</tranTime>             <!-- 交易时间 HHMMSS-->
+		<version>1.0</version>               <!-- 版本号-->
+		<balanceAmount>22.0</balanceAmount>   <!-- 余额 查询用 分为单位  第一位：正负 位，表示金额的正负值-->
+	</UnionPay>
+</Root>

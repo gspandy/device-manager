@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="GBK" standalone="no"?>
+<Root>
+	<Head>
+		<TranCode>2015008</TranCode>
+		<RspCode>0</RspCode>
+		<RspMsg>查询成功</RspMsg>
+	</Head>
+	<Data>
+		<List>
+			<Item>
+				<CardTypeName>普通</CardTypeName>
+			</Item>
+			<Item>
+				<CardTypeName>专科</CardTypeName>
+			</Item>
+			<Item>
+				<CardTypeName>专家</CardTypeName>
+			</Item>
+			<Item>
+				<CardTypeName>急诊</CardTypeName>
+			</Item>
+		</List>
+	</Data>
+</Root>

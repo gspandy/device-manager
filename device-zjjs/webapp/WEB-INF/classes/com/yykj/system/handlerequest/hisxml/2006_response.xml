@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Response>
+	<TransCode>2006</TransCode>
+	<ResultCode>0</ResultCode>
+	<ErrorMsg>存在有效的卡信息</ErrorMsg>
+	<PatientID>300000741394</PatientID>
+	<PatName>张三三</PatName>
+	<PatSex>男</PatSex>
+	<IDCard>422828199111084712</IDCard>
+	<AccBalance>0</AccBalance>
+	<Tel>18627755678</Tel>
+</Response>

@@ -1,0 +1,188 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body {
+	background-color: #8AA5BA;
+}
+
+.title {
+	width: 1130px;
+	height: 150px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.title div{
+	font-size:24px;
+	float:left;
+	width:49%;
+	height: 40px;  
+	margin-top: 70px;
+}
+
+#deviceno{
+	text-align: left;
+}
+
+img {
+	border: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+.left {
+	float: left;
+}
+
+.clear {
+	clear: both;
+}
+
+.w_portal_box {
+	width: 1130px;
+	margin: 30px auto;
+	color: #fff;
+	font-size: 36px;
+	font-family: "微软雅黑", "宋体";
+	text-align: center;
+}
+
+.one_block,.two_block,.three_block,.four_block,.five_block,.six_block,.seven_block,.eight_block,.nine_block,.ten_block,.eleven_block,.twelve_block
+	{
+	width: 370px;
+	height: 180px;
+	background: #0f88a2;
+	display: block;
+	position: relative;
+	margin: 0 10px 10px 0;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+}
+
+.two_block,.three_block,.eight_block,.nine_block,.eleven_block,.twelve_block
+	{
+	width: 180px;
+	height: 180px;
+	background: #d91ece;
+	cursor: pointer;
+}
+
+.three_block {
+	background: #2449a5;
+}
+
+.four_block {
+	background: #137dcf;
+	margin-right: 0;
+}
+
+.five_block {
+	background: #df6808;
+}
+
+.six_block {
+	background: #9608df;
+}
+
+.seven_block {
+	background: #b61555;
+	margin-right: 0;
+}
+
+.eight_block {
+	background: #05a3e8;
+}
+
+.nine_block {
+	background: #639028;
+}
+
+.ten_block {
+	background: #079e9c;
+}
+
+.eleven_block {
+	background: #103f63;
+}
+
+.twelve_block {
+	background: #9a0d81;
+	margin-right: 0;
+}
+
+.w_center_title {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	color: #fff;
+}
+
+.w_center_icon1,.w_center_icon2,.w_center_icon3,.w_center_icon4,.w_center_icon5,.w_center_icon6,.w_center_icon7,.w_center_icon8,.w_center_icon9,.w_center_icon10,.w_center_icon11,.w_center_icon12
+	{
+	width: 85px;
+	height: 84px;
+	background: url(../images/index_icon/iicon_01.png) no-repeat 0 0;
+	margin: 30px auto 0 auto;
+}
+
+.w_center_icon2 {
+	background: url(../images/index_icon/iicon_02.png) no-repeat 0 0;
+}
+
+.w_center_icon3 {
+	background: url(../images/index_icon/iicon_03.png) no-repeat 0 0;
+}
+
+.w_center_icon4 {
+	background: url(../images/index_icon/iicon_04.png) no-repeat 0 0;
+}
+
+.w_center_icon5 {
+	background: url(../images/index_icon/iicon_07.png) no-repeat 0 0;
+}
+
+.w_center_icon6 {
+	background: url(../images/index_icon/iicon_06.png) no-repeat 0 0;
+}
+
+.w_center_icon7 {
+	background: url(../images/index_icon/iicon_05.png) no-repeat 0 0;
+}
+
+.w_center_icon8 {
+	background: url(../images/index_icon/iicon_02.png) no-repeat 0 0;
+}
+
+.w_center_icon9 {
+	background: url(../images/index_icon/iicon_03.png) no-repeat 0 0;
+}
+
+.w_center_icon10 {
+	background: url(../images/index_icon/iicon_04.png) no-repeat 0 0;
+}
+
+.w_center_icon11 {
+	background: url(../images/index_icon/iicon_05.png) no-repeat 0 0;
+}
+
+.w_center_icon12 {
+	background: url(../images/index_icon/iicon_06.png) no-repeat 0 0;
+}

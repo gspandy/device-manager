@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>未缴费明细</title>
+<meta name="viewport" content="width=device-width,  initial-scale=1" />
+<link rel="stylesheet" type="text/css"  href="css/themes/default/jquery.mobile-1.4.5.min.css" />
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="nopayment_page" data-theme="a" data-dom-cache="true">
+	<div id="header_div" data-role="header" data-theme="a" data-position="fixed">
+		<div data-role="navbar" id="nopayment_navbar" data-iconpos="left" >
+        </div>
+	</div>
+	<div data-role="content">
+		<table id="table_list"  class="ui-body-e ui-shadow table-stripe ui-responsive"  data-role="table" data-mode="columntoggle" 
+			data-column-popup-theme="a" data-column-btn-text="请选择列.." data-column-btn-theme="a" style="font-size: 12px">
+		    <thead>
+		      <tr class="ui-bar-e">
+		      	<th>多选</th>
+		        <th data-priority="1">开方科室</th>
+		        <th>开方医生</th>
+		        <th data-priority="4">应收金</th>
+		        <th>实收金	</th>
+		        <th data-priority="2">单据号</th>
+		        <th data-priority="3">开方日期</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		    </tbody>
+		  </table>
+	</div>
+	
+	<div data-role="footer" data-theme="a" data-position="fixed">
+		<div data-role="navbar" data-iconpos="left" >
+            <ul>
+                <li><a href="#" data-rel="submit"  data-transition="slide" >提交</a></li>
+            </ul>
+        </div>
+	</div>
+	
+<script type="text/javascript">  
+		//显示加载器  
+		function showLoader() {
+		    $.mobile.loading('show', {  
+		        text: '加载中...', //加载器中显示的文字  
+		        textVisible: false, //是否显示文字  
+		        theme: 'b',        //加载器主题样式a-e  
+		        textonly: false,   //是否只显示文字  
+		        html: ""           //要显示的html内容，如图片等  
+		    });  
+		}  
+		  
+		//隐藏加载器.for jQuery Mobile 1.2.0  
+		function hideLoader(){  
+		    //隐藏加载器  
+		    $.mobile.loading('hide');  
+		}
+		
+		function changepage(item){
+			var str = JSON.stringify(item)
+			sessionStorage.setItem("items",str);
+			//$.mobile.changePage("mz_nopayment_detail.html");
+		}
+		
+		//获取进度
+		function getNopayMentRecord() {
+		    $.ajax({
+		        type: "POST",
+		        dataType: "json",
+		        url: "../NopaymetnRecordServlet?method=getNopayMentRecord",
+		        beforeSend: function () {         
+		            showLoader();
+		        },
+		        complete:function(){       
+		            hideLoader();
+		        },
+		        success: function (msg) {
+		        	var html="";
+		        	$.each(msg, function(index,item){ 
+		        		var str = JSON.stringify(item)
+		        		html+="<tr>"
+			    		      	+"<td><input type=\"checkbox\" value="+item.receiptNo+" data-mini=\"true\"/> </td>"
+			    		        +"<td>"+item.billDept+"</td>"
+			    		        +"<td>"+item.doctor+"</td>"
+			    		        +"<td>"+item.shouldMoney+"</td>"
+			    		        +"<td><a  data-transition=\"slide\" href=\"mz_nopayment_detail.html\" onclick='changepage("+str+")'>"+item.actualMoney+"</a></td>"
+			    		        +"<td>"+item.receiptNo+"</td>"
+			    		        +"<td>"+item.receiptTime+"</td>"
+			    		      +"</tr>";
+		            });
+		        	$("#table_list tbody").html(html);
+		        	$("#table_list").table("refresh");
+		        }
+		    });
+		}
+		
+		//当页面展示时执行
+		$(document).on("pageshow","#nopayment_page",function(){
+			var navbar_html="<ul>"
+			            +"<li><a href=\"#\" data-rel=\"back\" data-icon=\"back\" data-transition=\"slide\" >返回</a></li>"
+			            +"<li><a class=\"ui-link ui-btn ui-btn-active\" href=\"#\">未缴费明细</a></li>"
+			            +"<li><a href=\"index.html\" data-icon=\"home\" data-transition=\"slide\">首页</a></li>"
+		  			+"</ul>";
+			$("#nopayment_navbar").html(navbar_html);
+			$("#nopayment_navbar").navbar('refresh');//刷新
+			$("#table_list tbody").empty();
+			getNopayMentRecord();
+		});
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../Css/zTreeStyle/zTreeStyle.css"> 
+<link href="../../frame/css/bootstrap.min.css" rel="stylesheet" />
+<link href="../../frame/css/bootstrap-responsive.min.css" rel="stylesheet" />
+<link href="../../frame/css/font-awesome.css" rel="stylesheet" />
+<link href="../../frame/css/style.css" rel="stylesheet" />
+<link href="../../frame/css/style-responsive.css" rel="stylesheet" />
+<link href="../../frame/css/style-default.css" rel="stylesheet" id="style_color" />
+<script src="../../frame/js/jquery-1.8.3.min.js"></script>
+<script src="../../frame/js/bootstrap.min.js"></script>
+<script src="../Js/jquery.json-2.4.min.js"></script>
+
+<script src="../Js/comm.js"></script>
+<script src="../Js/plugin/jquery-validate/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../Js/script/DeviceType_add.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="../Js/zTree/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="../Js/zTree/jquery.ztree.core-3.5.min.js"></script>
+<script type="text/javascript" src="../Js/zTree/jquery.ztree.excheck-3.5.js"></script>
+<script type="text/javascript" src="../Js/script/R2R_save.js"></script>
+<style type="text/css">
+body{
+	font-size: 12px;
+	background-color: white;
+}
+#table_ {
+	width: 850px;
+}
+
+#add_user {
+	width: 800px;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+#btn_div {
+	text-align: right;
+	margin-right: 10px;
+}
+#top_org {
+ height: 10px;
+ width: 100%;
+ position: absolute;
+ top: 10px;
+ left: 0px;
+}
+#restree_div {
+ height: 500px;
+ width: 300px;
+ position: absolute;
+ top: 50px;
+ left: 320px;
+ border:1px solid #CCCCCC;
+ overflow:-Scroll;
+ overflow-x:hidden;
+ overflow:-moz-scrollbars-vertical;
+}
+#roletree_div {
+ height: 500px;
+ width: 300px;
+ position: absolute;
+ left: 1%;
+ top: 50px;
+ border:1px solid #CCCCCC;
+}
+</style>
+
+</head>
+<body>
+</br>
+<div id="top_org">
+<!-- 用户名称：<input type="text" name="txtOrgname" id="txtOrgname"class="empty" placeholder="" value="">&nbsp;&nbsp;  --> 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-primary" onClick="javascript:window.location.href='index.html'">刷新</button>&nbsp;&nbsp;
+     <button type="button" class="btn btn-success" id="save" name="save">保存</button>
+</div></br>
+	<div class="panel panel-info" id="roletree_div"> 
+	    <ul id="roletree" class="ztree"></ul>  
+	</div> 
+	<div class="panel panel-info" id="restree_div"> 
+	    <ul id="restree" class="ztree"></ul>  
+	</div> 
+</body>
+</html>
+<script language="JavaScript">  
+    var setting = {  
+   		view: {
+   			  //dblClickExpand: false,
+   			  expandSpeed: 10, //设置树展开的动画速度
+   			  selectedMulti: false,
+   			  fontCss: getFontCss
+   		},
+   		//获取json数据
+        async : {  
+            enable : true, 
+            url : "../../ResourceAuthorityServlet?method=getAllRoles&date="+new Date() // Ajax 获取数据的 URL 地址  
+            //autoParam : [ "id", "name" ] //ajax提交的时候，传的是id值
+        },  
+        data:{ // 必须使用data  
+		 	key : {
+        		name : "rolename"
+        	}, 
+            simpleData : {  
+                enable : true,  
+                idKey : "id", // id编号命名   
+                rootPId : 0
+            }
+        
+        },
+        edit : {
+        	drag : {
+        		autoExpandTrigger:true,
+        		autoOpenTime:500
+        	}
+        },
+        // 回调函数  
+        callback : {  
+            onClick : function(event, treeId, treeNode, clickFlag) {             
+                    //alert(" 节点id是：" + treeNode.id + ", 节点文本是：" + treeNode.name);
+                	var tree = $.fn.zTree.getZTreeObj("restree");
+            		var nodes = tree.getNodes();
+            		for(var j=0;j<nodes.length;j++){
+            			if(nodes[j].isParent){
+            				var children = nodes[j].children;
+            				for(var k=0;k<children.length;k++){
+            					tree.checkNode(children[k],false);
+            				}
+            				tree.checkNode(nodes[j],false);
+            			}else{
+            				tree.checkNode(nodes[j],false);
+            			}
+            		}
+            		getResByRole(treeNode.id)
+            },  
+            //捕获异步加载出现异常错误的事件回调函数 和 成功的回调函数  
+            onAsyncSuccess : function(event, treeId, treeNode, msg){  
+            	/* expAllNodes(); */
+            	$.fn.zTree.getZTreeObj("roletree").expandAll(true); 
+            }  
+        }  
+    };  
+  
+    var setting2 = { 
+    		check: {
+				enable: true,
+				chkStyle: "checkbox"
+			},
+       		view: {
+       			  //dblClickExpand: false,
+       			  expandSpeed: 10, //设置树展开的动画速度
+       			  selectedMulti: false,
+       			  fontCss: getFontCss
+       		},
+       		//获取json数据
+            async : {  
+                enable : true, 
+                url : "../../ResourceAuthorityServlet?method=getAllResource" // Ajax 获取数据的 URL 地址  
+                //autoParam : [ "id", "name" ] //ajax提交的时候，传的是id值
+            },  
+            data:{ // 必须使用data  
+    		 	key : {
+            		name : "resourcename"
+            	}, 
+                simpleData : {  
+                    enable : true,  
+                    idKey : "id",
+                    pIdKey : "menutype",
+                    rootPId : 0
+                }
+            
+            },
+            edit : {
+            	drag : {
+            		autoExpandTrigger:true,
+            		autoOpenTime:500
+            	}
+            },
+            // 回调函数  
+            callback : {  
+                onClick : function(event, treeId, treeNode, clickFlag) {  //点击节点后绑定值到form
+                    if(true) {
+                        //alert(" 节点id是：" + treeNode.id + ", 节点文本是：" + treeNode.name);  
+                    	/* $("#id").attr("value",treeNode.id);*/
+                    }  
+                },  
+                onCheck : function(e,treeId,treeNode){
+                	/* var treeObj = $.fn.zTree.getZTreeObj("roletree");
+                	var nodes = treeObj.getNodes();
+                	var snode = treeObj.getCheckedNodes(); */
+                	/* for(var i=0;i<nodes.length;i++){
+                		if(nodes[i]!=treeNode){
+                			nodes[i].checked = false;
+                		}
+                	}  */
+                },
+                //捕获异步加载出现异常错误的事件回调函数 和 成功的回调函数  
+                onAsyncSuccess : function(event, treeId, treeNode, msg){  
+                	/* expAllNodes(); */
+                	$.fn.zTree.getZTreeObj("restree").expandAll(true); 
+                }  
+            }  
+        };   
+	
+	function getFontCss(treeId, treeNode) {
+		return (!!treeNode.highlight) ? {color:"#A60000", "font-weight":"bold"} : {color:"#333", "font-weight":"normal"};
+	}
+	function filter(node) {
+		return !node.isParent && node.isFirstNode;
+	}
+    
+	function checkRes(data){
+		var tree = $.fn.zTree.getZTreeObj("restree");
+		var nodes = tree.getNodes();
+		/* for(var j=0;j<nodes.length;j++){
+			tree.checkNode(nodes[j],false);
+		} */
+		/* for(var i=0;i<nodes.length;i++){			
+			if (nodes[i].isParent){				
+				var children = nodes[i].children;
+				for(var k=0;k<data.length;k++){
+					for(var j=0;j<children.length;j++){
+						if(children[j].id==data[k].id){
+							tree.checkNode(nodes[i],true);
+							tree.checkNode(children[j],true);
+					}else{continue;}
+					}
+				}
+				
+			}
+			
+		} */
+		for(var i=0;i<data.length;i++){
+			for(var j=0;j<nodes.length;j++){
+				if(nodes[j].id==data[i].id){
+					/* tree.checkNode(nodes[j],true);
+					if(nodes[j].isParent){
+						var children = nodes[j].children;
+						for(var k=0;k<children.length;k++){
+							tree.checkNode(children[k],true);
+						}
+					} */
+					tree.checkNode(nodes[j],true);
+				}else{
+					if(nodes[j].isParent){						
+						var children = nodes[j].children;
+						for(var k=0;k<children.length;k++){
+							if(data[i].id==children[k].id){
+								tree.checkNode(children[k],true);
+							}
+						}
+						
+					}
+				}
+			}
+		}
+	}
+	
+	function getResByRole(roleid){		
+		$.ajax({
+	        type: "get",
+	        url: "../../ResourceAuthorityServlet?method=getResourceByRole",
+	        data:{"roleid":roleid},
+	        dataType: "json",
+	        cache:false,
+	        contentType: "application/json;charset=utf-8",
+	        success: function(data){
+	        	if(data!=null){
+	        		checkRes(data);
+	        	}
+	        }, error: function(){
+	              alert("请求出错");
+	        }
+	  })
+	}
+	
+    var key;  
+    $(document).ready(function() {  
+        $.fn.zTree.init($("#roletree"), setting);
+        $.fn.zTree.init($("#restree"), setting2);
+    });
+    
+    
+</script>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<msg>
+	<pub>
+		<TranCode>920001</TranCode>
+		<RspCode>000000</RspCode>
+		<RspMsg>交易成功</RspMsg>
+		<AppSeqNo>21379986</AppSeqNo>
+		<AppDate>20151013</AppDate>
+		<AppTime>122707</AppTime>
+		<ChannelSeq>1510130001</ChannelSeq>
+		<ChannelDate>20151013</ChannelDate>
+		<ChannelTime>123016</ChannelTime>
+	</pub>
+	<data>
+		<yhmc>刘汉荣</yhmc>
+		<zhye>0.02</zhye>
+		<dfzh>6223250000866227</dfzh>
+		<dfzhmc>武汉市江夏区中医医院</dfzhmc>
+		<jyrq>20151013</jyrq>
+		<jylsh>21379986</jylsh>
+	</data>
+</msg>

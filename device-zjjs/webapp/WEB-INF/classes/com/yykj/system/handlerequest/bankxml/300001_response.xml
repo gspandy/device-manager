@@ -1,0 +1,23 @@
+<ap>
+	<head>
+		<tr_code>310001</tr_code>
+		<cms_corp_no>00000278</cms_corp_no>
+		<user_no>002</user_no>
+		<req_no>00220140902153633554</req_no>
+		<serial_no> 19214738</serial_no>
+		<tr_acdt>20140902</tr_acdt>
+		<tr_time>155228</tr_time>
+		<succ_flag>0</succ_flag>
+		<ret_info>交易成功</ret_info>
+		<ret_code>0000</ret_code>
+		<ext_info></ext_info>
+		<reserved></reserved>
+		<file_flag></file_flag>
+		<org_code>10000</org_code>
+		<jnl_stat>9</jnl_stat>
+	</head>
+	<body>
+		<host_serial_no></host_serial_no>
+		<stat>9</stat>
+	</body>
+</ap>

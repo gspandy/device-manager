@@ -1,0 +1,5 @@
+<!-- 中联卡类型查询请求 -->
+<Request>
+	<TransCode >2002</TransCode>
+	<RquestType>1</RquestType>
+</Request>

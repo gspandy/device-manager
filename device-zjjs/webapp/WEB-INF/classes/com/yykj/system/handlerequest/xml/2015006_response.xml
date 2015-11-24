@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="GBK" standalone="no"?>
+<Root>
+	<Head>
+		<TranCode>2015006</TranCode>
+		<RspCode>0</RspCode>
+		<RspMsg>查询成功</RspMsg>
+	</Head>
+	<Data>
+		<PatientId>88888888</PatientId>
+		<PatName>刘汉荣</PatName>
+		<PatSex>女</PatSex>
+		<IDCard>420528198704613819</IDCard>
+		<AccBalance>300.00</AccBalance>
+		<Tel>13125066811</Tel>
+	</Data>
+</Root>

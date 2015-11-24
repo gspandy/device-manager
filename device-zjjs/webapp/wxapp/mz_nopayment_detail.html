@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>未缴费明细</title>
+<meta name="viewport" content="width=device-width,  initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="css/themes/default/jquery.mobile-1.4.5.min.css" />
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+	<div data-role="page" id="detail_page" data-theme="a" data-dom-cache="true">
+		<div data-role="header" data-theme="a" data-position="fixed">
+			<div id="nopayment_detail_navbar"  data-role="navbar" data-iconpos="left">
+			</div>
+		</div>
+		<div data-role="content">
+			<table class="ui-body-e ui-shadow table-stripe ui-responsive"
+				id="table_detail" data-role="table" data-mode="columntoggle"
+				data-column-popup-theme="a" data-column-btn-text="请选择列.."
+				data-column-btn-theme="a" style="font-size: 12px">
+				<thead>
+					<tr class="ui-bar-d">
+						<th>收费项</th>
+						<th>单价</th>
+						<th data-priority="2">数量</th>
+						<th data-priority="3">应收金</th>
+						<th>实收金</th>
+						<th data-priority="1">执行科室</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+
+		<div data-role="footer" data-theme="a" data-position="fixed">
+			<div data-role="navbar" data-iconpos="left">
+				<ul>
+					<li><a href="#" data-rel="submit" data-transition="slide">提交</a></li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$("#detail_page").live("pageshow", function() {
+					$("#table_detail tbody").empty();
+					var items = sessionStorage.getItem("items");
+					var obj = jQuery.parseJSON(items);
+					var details = obj.datails;
+					var html="";
+				$.each(details,function(i,detail){
+					debugger;
+	        		html+="<tr>"
+							+"<td>"+detail.itemName+"</td>"
+							+"<td>"+detail.price+"</td>"
+							+"<td>"+detail.num+"</td>"
+							+"<td>"+detail.shouldMoney+"</td>"
+							+"<td>"+detail.actualMoney+"</td>"
+							+"<td>"+detail.execDept+"</td>"
+						  +"</tr>";
+	            });
+				
+				var navbar_html="<ul>"
+		            +"<li><a href=\"mz_nopayment.html\" data-rel=\"back\" data-icon=\"back\" data-transition=\"slide\" >返回</a></li>"
+		            +"<li><a class=\"ui-link ui-btn ui-btn-active\" href=\"#\">单据详情</a></li>"
+		            +"<li><a href=\"index.html\" data-icon=\"home\" data-transition=\"slide\">首页</a></li>"
+	  			+"</ul>";
+				$("#nopayment_detail_navbar").html(navbar_html);
+				$("#nopayment_detail_navbar").navbar('refresh');//刷新
+				
+	        	$("#table_detail tbody").append(html);
+	        	$("#table_detail").table("refresh");
+			}); 
+		</script>
+	</div>
+</body>
+</html>

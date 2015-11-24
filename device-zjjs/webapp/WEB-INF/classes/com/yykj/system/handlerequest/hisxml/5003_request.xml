@@ -1,0 +1,8 @@
+﻿<Request>
+	<TransCode>5003</TransCode>
+	<PatientID>31-022955</PatientID>
+	<Day>2015-10-10</Day>
+	<UserId>wxapp</UserId>
+	<Start>1</Start>
+	<RequestQty>100</RequestQty>
+</Request>

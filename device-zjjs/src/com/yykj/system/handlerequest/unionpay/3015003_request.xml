@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="GBK"?>
+<Root>
+	<Head>
+		<TranCode>3015003</TranCode>
+		<ChannelDate>2015-10-01 13:21:59</ChannelDate>
+	</Head>
+	<Data>
+		<Tpdu>6005850000</Tpdu>
+		<Header>602100000000</Header>
+		<MsgType>0400</MsgType>
+		<Money>10000</Money>
+		<SerialNum>98770</SerialNum>
+		<TwoTrack>62239688807253120D49125201000082200</TwoTrack>
+		<ThreeTrack>62239688807253120D333333</ThreeTrack>
+		<TerminalsCode>00020001</TerminalsCode>
+		<MerchantCdoe>302420159980002</MerchantCdoe>
+		<IcCardDate>asasa</IcCardDate>
+		<Custom>00000000003</Custom>
+	</Data>
+</Root>

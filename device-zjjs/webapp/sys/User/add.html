@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<link href="../../frame/css/bootstrap.min.css" rel="stylesheet" />
+<link href="../Css/zTreeStyle/zTreeStyle.css" rel="stylesheet" type="text/css" /> 
+<link href="../../frame/css/bootstrap-responsive.min.css" rel="stylesheet" />
+<link href="../../frame/css/bootstrap-fileupload.css" rel="stylesheet" />
+<link href="../../frame/css/font-awesome.css" rel="stylesheet" />
+<link href="../../frame/css/style.css" rel="stylesheet" />
+<link href="../../frame/css/style-responsive.css" rel="stylesheet" />
+<link href="../../frame/css/style-default.css" rel="stylesheet" id="style_color" />
+
+<script src="../../frame/js/jquery-1.8.3.min.js"></script>
+<script src="../../frame/js/bootstrap.min.js"></script>
+<script src="../../frame/js/jquery.validate.min.js"></script>
+<script src="../../frame/js/form-validation-script.js"></script>
+<script src="../Js/jquery.cookie.js"></script>
+
+
+<script src="../Js/comm.js"></script>
+<script src="../Js/script/user_add.js" type="text/javascript" charset="utf-8">></script>
+	
+<style type="text/css">
+
+html {
+	height: 100%;
+}
+
+body {
+	background-color: white;
+	height: 100%;
+}
+#btn_div {
+	text-align: center;
+	 margin-right: 5%;
+}
+#content {
+	padding-top: 10px;
+	height: calc(100% - 30px);
+}
+
+.font {
+	font-family: Microsoft YaHei, '宋体', Tahoma, Helvetica, Arial,
+		"\5b8b\4f53", sans-serif;
+}
+#tree_div{
+    border:1px solid #eeeeee;
+    overflow:-Scroll;
+    overflow-x:hidden;
+    overflow:-moz-scrollbars-vertical; 
+    height: 100%;
+    width: 100%;
+}
+</style>
+
+</head>
+<body>
+	<div id="content">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="widget blue">
+						<div class="widget-title">
+							<h4>
+								<i class="icon-reorder"></i>添加用户
+							</h4>
+						</div>
+					<div class="widget-body"> 
+							<div class="widget-body">							
+								<form class="form-horizontal" role="form" id="myform" style="margin-left: 5%;">								
+									<div class="control-group">
+										<div class="controls">
+										<b style="font-size: 14px">登录账号:</b>&nbsp;<input class="form-control" id="usercode" name="usercode"
+												type="text" placeholder="请输入登录名" required="required">&nbsp;&nbsp;
+										<b style="font-size: 14px">登录密码:</b>&nbsp;<input class="form-control" id="password" name="password"
+												type="password" placeholder="请输入密码" required="required">
+										</div>
+									</div>
+									<div class="control-group">
+										<div class="controls">
+											<b style="font-size: 14px">用户姓名:</b>&nbsp;
+											<input class="form-control" id="username" name="username" type="text" placeholder="请输入姓名" required="required">&nbsp;&nbsp;
+											<b style="font-size: 14px">用户性别:</b>&nbsp;&nbsp;&nbsp;
+											<input type="radio" name="sex" id="sex" value="1" checked="checked"> 男 <input type="radio" name="sex" id="sex" value="0"> 女 	
+										</div>
+									</div>
+									<div class="control-group">
+										<div class="controls">
+											<b style="font-size: 14px">办公电话:</b>&nbsp;<input class="form-control" id="officetel" name="officetel" type="text"
+												placeholder="请输入办公电话">&nbsp;&nbsp;
+											<b style="font-size: 14px">联系电话:</b>&nbsp;<input class="form-control" id="tel" name="tel" type="text"
+												placeholder="请输入联系电话">
+										</div>
+									</div>
+									<div class="control-group">									
+										<div class="controls">										
+											<b style="font-size: 14px">电子邮箱:</b>&nbsp;<input class="form-control" id="email" name="email" type="text"
+												placeholder="请输入邮箱">&nbsp;&nbsp;	
+											<b style="font-size: 14px;">是否启用:</b>&nbsp;&nbsp;&nbsp;<input type="radio" name="isenabled" id="isenabled" value="1"
+												checked="checked"> 是 <input type="radio"
+												name="isenabled" id="isenabled" value="0"> 否
+										</div>
+									</div>
+									<div id="btn_div">
+										<button type="button" id="saveUser" class="btn btn-primary">保存</button>
+										<button type="button" class="btn btn-success"
+											onClick="javascript:window.location.href='../User/index.html';">返回列表</button>
+									</div>
+									
+								</form>
+							</div>							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

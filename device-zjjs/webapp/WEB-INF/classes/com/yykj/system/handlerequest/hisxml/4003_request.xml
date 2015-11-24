@@ -1,0 +1,10 @@
+<Request>
+	<TransCode >4003</TransCode>
+	<RegType>1</RegType>
+	<Day>2015-10-11</Day>
+	<RigsterType>急诊科</RigsterType>
+	<DeptID>1</DeptID>
+	<Start>1</Start>
+	<RequestQty>10</RequestQty>
+	<UserId>wxapp</UserId>
+</Request>

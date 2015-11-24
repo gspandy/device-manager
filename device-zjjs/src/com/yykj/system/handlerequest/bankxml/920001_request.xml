@@ -1,0 +1,16 @@
+
+<msg>
+	<pub>
+		<TranCode>920001</TranCode>
+		<ChannelSeq>1509220001</ChannelSeq>
+		<ChannelDate>20150922</ChannelDate>
+		<ChannelTime>222446</ChannelTime>
+	</pub>
+	<data>
+		<yhzh>6230290011297062</yhzh>
+		<yhmc>刘汉荣</yhmc>
+		<jyje>0.12</jyje>
+		<ywbh>9000099004002</ywbh>
+		<yhh1>P0098826</yhh1>
+	</data>
+</msg> 

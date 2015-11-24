@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Response>
+	<TransCode>5002</TransCode>
+	<ResultCode>0</ResultCode>
+	<ErrorMsg>成功</ErrorMsg>
+	<TranFlow>20150903122334f333d31b</TranFlow>
+	<TranTime>2015-09-03 12:23:33</TranTime>
+	<SendWin></SendWin>
+</Response>

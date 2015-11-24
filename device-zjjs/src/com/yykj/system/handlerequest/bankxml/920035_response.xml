@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<msg>
+	<pub>
+		<TranCode>920035</TranCode>
+		<RspCode>310021</RspCode>
+		<RspMsg>已存在签约记录</RspMsg>
+		<AppSeqNo>11468491</AppSeqNo>
+		<AppDate>20150512</AppDate>
+		<AppTime>112159</AppTime>
+		<ChannelSeq>50104</ChannelSeq>
+		<ChannelDate>20150109</ChannelDate>
+		<ChannelTime>165055</ChannelTime>
+	</pub>
+	<data>
+		<sex>1</sex>
+		<csny>19880505</csny>
+		<kyye>1815827.90</kyye>
+		<zjlx>B1</zjlx>
+		<zjhm>320584198801010440</zjhm>
+		<khxm>徐海才</khxm>
+		<zzdz>ｓｄｆｓａｆａｓｄａｓｆａｓ</zzdz>
+	</data>
+</msg>

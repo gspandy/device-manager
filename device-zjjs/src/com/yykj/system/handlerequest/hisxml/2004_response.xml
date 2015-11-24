@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Response>
+	<TransCode>2004</TransCode>
+	<ResultCode>0</ResultCode>
+	<ErrorMsg>交易成功</ErrorMsg>
+	<PatientID>32000121</PatientID>
+	<CardTranFlow>BKLSH001</CardTranFlow>
+	<PayTranFlow>0091219</PayTranFlow>
+	<TranTime>2015-10-10 12:21:11</TranTime>
+	<Amt>200.00</Amt>
+</Response>

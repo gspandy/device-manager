@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<msg>
+	<pub>
+		<TranCode>920065</TranCode>
+		<RspCode>000000</RspCode>
+		<RspMsg>交易成功</RspMsg>
+		<AppSeqNo>11298712</AppSeqNo>
+		<AppDate>20151013</AppDate>
+		<AppTime>122708</AppTime>
+		<ChannelSeq>1510130002</ChannelSeq>
+		<ChannelDate>20151013</ChannelDate>
+		<ChannelTime>123016</ChannelTime>
+	</pub>
+	<data></data>
+</msg>

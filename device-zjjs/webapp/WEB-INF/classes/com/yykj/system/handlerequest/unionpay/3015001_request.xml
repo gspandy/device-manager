@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="GBK"?>
+<Root>
+	<Head>
+		<TranCode>3015001</TranCode>
+		<ChannelDate>2015-10-01 13:21:59</ChannelDate>
+	</Head>
+	<Data>
+		<Tpdu>6005850000</Tpdu>
+		<Header>602100000000</Header>
+		<MsgType>0800</MsgType>
+		<SerialNum>111111</SerialNum>
+		<TerminalsCode>00020001</TerminalsCode>
+		<MerchantCdoe>302420159980002</MerchantCdoe>
+		<Custom>00000000003</Custom>
+	</Data>
+</Root>

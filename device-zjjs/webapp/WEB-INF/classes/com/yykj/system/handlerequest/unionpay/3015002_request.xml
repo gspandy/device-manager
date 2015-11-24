@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="GBK"?>
+<Root>
+	<Head>
+		<TranCode>3015002</TranCode>
+		<ChannelDate>2015-10-01 13:21:59</ChannelDate>
+	</Head>
+	<Data>
+		<Tpdu>6005850000</Tpdu>
+		<Header>602100000000</Header>
+		<MsgType>0200</MsgType>
+		<CardNo>62239688807253120</CardNo>
+		<Money>10000</Money>
+		<SerialNum>98770</SerialNum>
+		<TwoTrack>6223968880725312=49125201000082200</TwoTrack>
+		<ThreeTrack>62239688807253120D333333</ThreeTrack>
+		<TerminalsCode>00020001</TerminalsCode>
+		<MerchantCdoe>302420159980002</MerchantCdoe>
+		<PinKey>79348228DC95907A</PinKey>
+		<Custom>220000010000005</Custom>
+	</Data>
+</Root>

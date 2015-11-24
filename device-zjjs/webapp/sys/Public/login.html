@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>后台管理系统</title>
+	<meta charset="UTF-8">
+<link href="../../frame/css/bootstrap.min.css" rel="stylesheet" />
+<link href="../../frame/css/bootstrap-responsive.min.css" rel="stylesheet" />
+<link href="../../frame/css/font-awesome.css" rel="stylesheet" />
+<link href="../../frame/css/style.css" rel="stylesheet" />
+<link href="../../frame/css/style-responsive.css" rel="stylesheet" />
+<link href="../../frame/css/style-default.css" rel="stylesheet" id="style_color" />
+<script src="../../frame/js/jquery-1.8.3.min.js"></script>
+<script src="../../frame/js/bootstrap.min.js"></script>
+<script src="../Js/ckform.js" type="text/javascript" ></script>
+<script src="../Js/common.js" type="text/javascript" ></script>
+<script src="../Js/script/user_login.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="../Js/jquery.json-2.4.min.js"></script>
+<script src="../Js/jquery.cookie.js"></script>
+<script src="../Js/plugin/jquery-validate/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        body {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            /* background-color: #f5f5f5;
+            background-image: URL(../Images/loginbg.jpg); */
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+
+        .form-signin {
+            max-width: 300px;
+            padding: 19px 29px 29px;
+            margin: 0 auto 20px;
+            background-color: #fff;
+            border: 3px solid #e5e5e5;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+            -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+            margin-top: 12%;
+        }
+
+        .form-signin .form-signin-heading,
+        .form-signin .checkbox {
+            margin-bottom: 10px;
+        }
+
+       /*  .form-signin input[type="text"],
+        .form-signin input[type="password"] {
+            font-size: 16px;
+            height: auto;
+            margin-bottom: 15px;
+            padding: 7px 9px;
+        } */
+
+    </style>  
+</head>
+<body>
+<div class="container">
+    <form class="form-signin" id="myform">
+        <h3 align="center" style="margin-top: 0%;">用 户 登 录</h3>
+       <!--  <div class="control-group">
+        	<div class="controls">
+	        	<div class="input-prepend input-append"><select id="year"></select>
+	        	<span class="add-on"><i class="icon-time">&nbsp;业务年度</i></span>
+	        	</div>
+        	</div>    	
+        </div>
+         <div class="control-group">
+         	<div class="controls">
+        		<div class="input-prepend input-append"><select id="admdivcode"></select>
+	        	<span class="add-on"><i class="icon-location-arrow">&nbsp;行政区划</i></span>
+	        	</div>   
+        	</div> 
+         </div>  -->      
+        <div class="control-group">
+        	<div class="controls">
+	        	<div class="input-prepend input-append">         		   		
+	        		<input type="text" name="usercode" id="usercode" 
+	        		placeholder="账号" >
+	        		<span class="add-on" ><i class="icon-user">&nbsp;登录账户</i></span>      		
+	        	</div>
+        	</div>       	
+        </div>
+        <div class="control-group" >        	
+        	<div class="controls">
+	        	<div class="input-prepend input-append">       		 	
+		        	<input type="password" name="password" id="password"  
+		        		placeholder="密码" >	   
+		        	<span class="add-on"><i class="icon-lock">&nbsp;登录密码</i></span>           	
+	        	</div>
+        	</div> 
+        	<div class="controls">
+        		<input type="checkbox" name="rem" id="rem"  style="margin-top: 0px"/>记住用户
+        	</div>           	
+        </div>
+        <!-- <input type="text" name="verify" class="input-medium" placeholder="验证码"> -->
+       
+        <p><button class="btn btn-large btn-primary" style="width: 100%;" type="button"
+         id="login" name="login" onclick="dologin();">登&nbsp;&nbsp;录</button></p>
+    </form>  
+</div>
+<!-- <div id="footer" style="margin-bottom: 0px">系统服务提供商：武汉市同步兴财信息技术开发有限公司 </div> -->
+</body>
+</html>

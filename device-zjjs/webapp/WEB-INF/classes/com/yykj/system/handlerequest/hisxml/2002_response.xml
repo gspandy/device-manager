@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Response>
+	<TransCode>2002</TransCode>
+	<ResultCode>0</ResultCode>
+	<ErrorMsg></ErrorMsg>
+	<List>
+		<Item>
+			<CardTypeID>0</CardTypeID>
+			<CardTypeName>就诊卡</CardTypeName>
+			<InsureId></InsureId>
+			<InsureName></InsureName>
+		</Item>
+		<Item>
+			<CardTypeID>1</CardTypeID>
+			<CardTypeName>武汉市居民健康卡</CardTypeName>
+			<InsureId></InsureId>
+			<InsureName></InsureName>
+		</Item>
+	</List>
+</Response>

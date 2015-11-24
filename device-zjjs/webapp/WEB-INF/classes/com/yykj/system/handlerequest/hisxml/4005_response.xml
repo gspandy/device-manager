@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Response>
+	<TransCode>4005</TransCode>
+	<ResultCode>0</ResultCode>
+	<ErrorMsg>查询成功</ErrorMsg>
+	<TranFlow>798898989</TranFlow>
+	<RegisterNo>P00580638</RegisterNo>
+	<AsRowid>1212121</AsRowid>
+	<JZTime>2015-10-10 12:23:11</JZTime>
+	<JZNo>5</JZNo>
+	<Type>专家号</Type>
+	<PatName>刘汉荣</PatName>
+	<MZH>12</MZH>
+	<FeesType>01</FeesType>
+	<FeesItem>挂号费</FeesItem>
+	<DeptName>骨一科</DeptName>
+	<Loc>门诊楼二楼外科</Loc>
+	<DoctorName>李医生</DoctorName>
+	<SessionType>主任医师</SessionType>
+	<RegTime>2015-10-10 12:23:22</RegTime>
+</Response>

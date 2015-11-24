@@ -1,0 +1,25 @@
+<Request>
+	<TransCode >4005</TransCode>
+	<RegType>1</RegType>
+	<Day>2015-10-10</Day>
+	<PatientID>3102295</PatientID>
+	<CardTypeID>1</CardTypeID>
+	<CardNo>4205281098704163819</CardNo>
+	<Password></Password>
+	<AsRowid>1000212</AsRowid>
+	<TimeValue>8:00-21:00</TimeValue>
+	<List>
+		<Item>
+			<PayType>3</PayType>
+			<PayMode>2</PayMode>
+			<PayAmt>3.8</PayAmt>
+			<PayNo>200001</PayNo>
+			<PayCardNo>6228480058063832073</PayCardNo>
+			<PayNote>支付说明text</PayNote>
+			<ExpandList>
+				<ItemName></ItemName>
+				<ItemValue></ItemValue>
+			</ExpandList>
+		</Item>
+	</List>
+</Request>
